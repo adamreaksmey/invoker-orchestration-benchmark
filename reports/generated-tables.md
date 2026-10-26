@@ -64,6 +64,15 @@
 | H3: mixed vs uniform model routing inside Invoker (C ÷ B) | 1.10× | 0.98× | 0.77× | 1.12× | 1.00× |
 | Cross-worker: same DAG, Cursor vs Codex workers (E ÷ B) | 0.90× | 1.11× | 0.93× | 1.56× | 1.05× |
 
+### Uncached input token ratio
+
+| Comparison | P1 | P2 | P3 | P4 | All four (sum ÷ sum) |
+| --- | --- | --- | --- | --- | --- |
+| H2: Invoker vs continuous, same Codex model (B ÷ A) | 3.00× | 4.88× | 6.23× | 3.03× | 3.86× |
+| H1: Invoker vs continuous, same Cursor model (E ÷ D) | 5.36× | 5.15× | 4.80× | 3.99× | 4.85× |
+| H3: mixed vs uniform model routing inside Invoker (C ÷ B) | 1.51× | 0.97× | 0.96× | 1.08× | 1.17× |
+| Cross-worker: same DAG, Cursor vs Codex workers (E ÷ B) | 1.50× | 1.19× | 1.31× | 1.55× | 1.39× |
+
 ### Output token ratio
 
 | Comparison | P1 | P2 | P3 | P4 | All four (sum ÷ sum) |
@@ -90,6 +99,16 @@
 | P2 | 306k | 220k (0.72× of A) | 294k | 245k (0.83× of D) |
 | P3 | 538k | 309k (0.58× of A) | 599k | 288k (0.48× of D) |
 | P4 | 360k | 186k (0.52× of A) | 450k | 290k (0.64× of D) |
+
+### Tokens per accepted deliverable (all tokens spent ÷ accepted cells)
+
+| Arm | Accepted cells | Input tokens per accepted | Output tokens per accepted |
+| --- | --- | --- | --- |
+| Arm A | 3 | 626k | 14k |
+| Arm B | 4 | 1,525k | 27k |
+| Arm C | 4 | 1,520k | 21k |
+| Arm D | 3 | 647k | 21k |
+| Arm E | 3 | 2,130k | 51k |
 
 ### Codex 5-hour quota consumed (percentage points, same window only)
 

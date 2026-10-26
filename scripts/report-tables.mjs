@@ -73,6 +73,18 @@ function acceptanceTotals() {
   return `### Totals per arm (all four fixtures)\n\n${renderTable(["Arm", "Accepted", "Total input tokens", "Output tokens", "Wall time"], rows)}`;
 }
 
+function perAcceptedTable() {
+  const rows = ARM_IDS.map((armId) => {
+    const cells = FIXTURE_IDS.map((fixtureId) => cellFor(fixtureId, armId)).filter(Boolean);
+    const acceptedCount = cells.filter((cell) => cell.accepted).length;
+    const totalInput = sumOver(armId, (cell) => cell.tokens.totals.totalInput);
+    const totalOutput = sumOver(armId, (cell) => cell.tokens.totals.output);
+    if (acceptedCount === 0) return [`Arm ${armId}`, "0", "n/a", "n/a"];
+    return [`Arm ${armId}`, String(acceptedCount), formatThousands(totalInput / acceptedCount), formatThousands(totalOutput / acceptedCount)];
+  });
+  return `### Tokens per accepted deliverable (all tokens spent ÷ accepted cells)\n\n${renderTable(["Arm", "Accepted cells", "Input tokens per accepted", "Output tokens per accepted"], rows)}`;
+}
+
 function quotaTable() {
   const rows = FIXTURE_IDS.map((fixtureId) => [fixtureId, ...["A", "B", "C"].map((armId) => {
     const quota = cellFor(fixtureId, armId)?.tokens.codexQuota;
@@ -131,9 +143,11 @@ const sections = [
   matrix("Uncached input tokens", (cell) => formatThousands(cell.tokens.totals.uncachedInput)),
   matrix("Output tokens", (cell) => formatThousands(cell.tokens.totals.output)),
   ratioTable("Total input token ratio", (cell) => cell.tokens.totals.totalInput),
+  ratioTable("Uncached input token ratio", (cell) => cell.tokens.totals.uncachedInput),
   ratioTable("Output token ratio", (cell) => cell.tokens.totals.output),
   ratioTable("Wall time ratio", (cell) => cell.wallSeconds),
   perSessionTable(),
+  perAcceptedTable(),
   quotaTable(),
   byModelTable(),
   integrityTable(),

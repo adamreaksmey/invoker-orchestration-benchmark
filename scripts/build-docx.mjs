@@ -73,6 +73,10 @@ function collectWhile(lines, start, predicate) {
   return { collected, next: index };
 }
 
+function isListContinuation(line) {
+  return /^\s{2,}\S/.test(line) && !/^\s*(?:[-*]|\d+\.)\s+/.test(line);
+}
+
 function convertBlock(lines, index) {
   const line = lines[index];
   if (line.startsWith("```")) {
@@ -85,7 +89,11 @@ function convertBlock(lines, index) {
   }
   const heading = /^(#{1,4})\s+(.*)$/.exec(line);
   if (heading) return { blocks: [new Paragraph({ heading: HEADING_LEVELS[heading[1].length], children: [new TextRun({ text: heading[2].replace(/`/g, ""), font: BODY_FONT })] })], next: index + 1 };
-  if (/^\s*(?:[-*]|\d+\.)\s+/.test(line)) return { blocks: [buildListItem(line)], next: index + 1 };
+  if (/^\s*(?:[-*]|\d+\.)\s+/.test(line)) {
+    const { collected, next } = collectWhile(lines, index + 1, isListContinuation);
+    const joined = [line, ...collected.map((continuation) => continuation.trim())].join(" ");
+    return { blocks: [buildListItem(joined)], next };
+  }
   if (/^---+$/.test(line.trim())) return { blocks: [new Paragraph({ border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: "BBBBBB", space: 1 } } })], next: index + 1 };
   if (line.startsWith("> ")) return { blocks: [new Paragraph({ children: inlineRuns(line.slice(2)), indent: { left: 360 }, shading: { type: ShadingType.CLEAR, fill: CODE_FILL, color: "auto" } })], next: index + 1 };
   if (!line.trim()) return { blocks: [], next: index + 1 };

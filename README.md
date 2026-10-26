@@ -55,7 +55,10 @@ bash scripts/run-matrix.sh codex  P2:A P2:B P2:C P3:A P3:B P3:C P4:A P4:B P4:C P
 wait
 
 node scripts/rollup-tokens.mjs     # runs/summary.json + per-cell tokens.json
-node scripts/build-docx.mjs        # renders reports/COMBINED.md to DOCX
+node scripts/scrub-identifiers.mjs # redact Codex account ids before publishing transcripts
+node scripts/report-tables.mjs     # reports/generated-tables.md from runs/summary.json
+node scripts/assemble-report.mjs   # reports/COMBINED.md from COMBINED.template.md + generated tables
+node scripts/build-docx.mjs        # renders reports/COMBINED.md to DOCX (--output <path>)
 ```
 
 A cell refuses to overwrite an existing result. To rerun after an infrastructure failure:

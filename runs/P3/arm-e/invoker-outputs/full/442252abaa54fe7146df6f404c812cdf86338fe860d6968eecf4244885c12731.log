@@ -1,0 +1,41 @@
+
+added 65 packages in 189ms
+
+> markdown-wiki@0.1.0 test
+> node --test test/
+
+✔ lists, reads, creates, updates, and deletes pages (36.3905ms)
+✔ search finds pages containing the query (case-insensitive) (6.667042ms)
+✔ search requires a non-blank q (4.914875ms)
+✔ search ANDs terms, ranks title matches above body, and caps at 20 (19.556333ms)
+✔ search treats punctuation and quotes as plain text and never 500s (5.533208ms)
+✔ normalizeTags trims, lowercases, deduplicates, and sorts (0.178625ms)
+✔ parsePageContent prefers front-matter title over heading and slug (0.124583ms)
+✔ parsePageContent accepts comma-form tags (0.039959ms)
+✔ parsePageContent ignores unclosed front matter (0.037292ms)
+✔ parsePageContent uses front-matter title without a heading (0.062583ms)
+✔ GET /pages and GET /pages/:slug include tags; body excludes front matter (6.112917ms)
+✔ PUT returns page with parsed front matter tags and title (4.448666ms)
+✔ createApp runs migrations and indexes existing pages on startup (3.370625ms)
+✔ startup sync reflects added, changed, and removed pages (4.627834ms)
+✔ PUT and DELETE update the index before responding (6.673458ms)
+✔ schema version table and FTS5 content are persisted (2.230042ms)
+✔ GET /tags returns [] when no pages are tagged (3.13475ms)
+✔ GET /tags returns tag counts sorted by count desc then tag asc (5.579208ms)
+✔ PUT and DELETE keep tag endpoints in sync with the index (10.302042ms)
+✔ GET /tags/:tag lists pages by slug; case-insensitive; unknown tag is [] (5.984125ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 185.107375
+
+> markdown-wiki@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 6 file(s)
+[worktree] Process exited: actionId=wf-1793017311853-1/p3-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017311853-1/p3-verify/g0.t0.a-a93e04c57-6183b623 from the local RepoPool mirror.

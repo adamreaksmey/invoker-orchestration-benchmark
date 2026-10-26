@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "commit": "fe719610ed0f623dd4139b9541075f8ec0edcda0"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:21:51.572Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 455,
+      "logTail": "\nadded 65 packages in 349ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 309,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (40.772959ms)\n✔ front matter supplies title, normalized tags, and stripped body (0.201667ms)\n✔ index sync picks up pages added, changed, or removed while stopped (12.501791ms)\n✔ search ranks title matches above body matches and wraps snippets (5.9095ms)\n✔ tags endpoints aggregate counts and list pages case-insensitively (7.490292ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 145.360875\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 281,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 7 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 192,
+      "logTail": "✔ parses front matter title and normalizes tags (35.219416ms)\n✔ index uses FTS5 and a schema version table (4.216208ms)\n✔ index re-syncs with files changed while the app was down (10.456833ms)\n✔ search is case-insensitive, ANDs terms, and weights titles (5.944833ms)\n✔ search handles punctuation safely and validates the query (5.935958ms)\n✔ search returns at most 20 results (12.805833ms)\n✔ PUT and DELETE update the index before responding (6.073334ms)\n✔ tags endpoints count and list pages (4.321375ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 143.37375\n"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+
+up to date in 219ms
+
+> csvreport@0.1.0 test
+> node --test test/
+
+✔ prints rows as a table (1.419292ms)
+✔ groups and sums a column (1.3785ms)
+✔ groups with count only and sorts groups by key (0.426708ms)
+✔ groups with sum and count in the contract column order and rounds sums (0.372583ms)
+✔ does not aggregate rows without group-by (0.450042ms)
+✔ prints usage without an input file (0.113208ms)
+✔ rejects unknown short and long flags (0.673375ms)
+✔ reports a missing input file as an I/O error (0.3235ms)
+✔ reports an unreadable input path as an I/O error (0.194375ms)
+✔ rejects options with missing values (0.44875ms)
+✔ validates schema rules and converts numeric columns (1.550417ms)
+✔ reports one validation error per invalid cell and suppresses output (0.753792ms)
+✔ skips invalid rows and reports the number of skipped rows (0.494458ms)
+✔ rejects a schema column absent from the CSV header (0.285166ms)
+✔ enforces enum, numeric bounds, and boolean values (1.406875ms)
+✔ formats output as pretty JSON with numeric values (0.561375ms)
+✔ formats output as CSV with required quoting and LF endings (0.592209ms)
+✔ writes formatted output to --out and leaves stdout empty (0.750584ms)
+✔ rejects an invalid output format (0.184ms)
+✔ parses quoted fields (0.728792ms)
+✔ parses escaped quotes (0.374625ms)
+✔ parses commas inside quoted fields (0.068292ms)
+✔ parses newlines inside quoted fields (0.068625ms)
+✔ accepts CRLF and LF line endings (0.064208ms)
+✔ accepts an optional UTF-8 BOM (0.046667ms)
+✔ accepts an optional trailing newline (0.042584ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 65.773167
+
+> csvreport@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 7 file(s)
+[worktree] Process exited: actionId=wf-1793017089867-1/p4-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017089867-1/p4-verify/g0.t0.a-a6806e3a3-5588c4ac from the local RepoPool mirror.

@@ -1,0 +1,19 @@
+{
+  "shortstat": "8 files changed, 495 insertions(+), 23 deletions(-)",
+  "filesChanged": 8,
+  "commits": 1,
+  "testFilesTouched": [
+    "M\ttest/app.test.js",
+    "A\ttest/db.test.js"
+  ],
+  "nameStatus": [
+    "M\tsrc/app.js",
+    "A\tsrc/db.js",
+    "A\tsrc/links.js",
+    "A\tsrc/rate-limit.js",
+    "A\tsrc/validation.js",
+    "M\ttest/app.test.js",
+    "A\ttest/db.test.js",
+    "M\ttest/helpers.js"
+  ]
+}

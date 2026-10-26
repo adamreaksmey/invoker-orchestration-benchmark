@@ -1,0 +1,10 @@
+I'll read SPEC.md and inspect the existing API/index patterns so we can add the tags endpoints and tests.I have the index shape and route patterns. Next I'll add tag queries on the index, wire `GET /tags` and `GET /tags/:tag`, then cover them with tests.Routes and tests are in place. Running `npm test` and `npm run build` next.Tests and build passed. Preparing the commit.Tags API is in and committed as `6db4ef7`.
+
+**What changed**
+- `wiki-index.js`: `listTagsWithCounts` / `listPagesByTag` over `page_tags` (+ wrappers on the index)
+- `app.js`: `GET /tags` and `GET /tags/:tag`
+- Tests for count/sort order, slug sort, case-insensitive match, and unknown → `[]`
+
+**Verification:** `npm test` (16 pass) and `npm run build` both succeeded.
+[worktree] Process exited: actionId=wf-1793017311853-1/p3-tags-api exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017311853-1/p3-tags-api/g0.t0.a-a598814e7-5edd2cb9 from the local RepoPool mirror.

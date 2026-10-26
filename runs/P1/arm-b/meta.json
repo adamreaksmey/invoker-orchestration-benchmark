@@ -1,0 +1,26 @@
+{
+  "fixture": "P1",
+  "arm": "B",
+  "startedAt": "2026-10-26T12:28:33Z",
+  "finishedAt": "2026-10-26T12:35:48Z",
+  "wallSeconds": 435,
+  "agentExitCode": 0,
+  "tool": "invoker-cli run --standalone",
+  "agent": "codex",
+  "workflowId": "wf-1793017714057-1",
+  "workflowStatus": "success",
+  "baselineSha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e",
+  "tipSha": "6401ce139be0f9b1edbf0bd72cb4163ca6d1c1ad",
+  "tipBranch": "runs/P1/arm-b",
+  "harnessCommittedLeftovers": false,
+  "noChangesMade": false,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "diff": {
+    "shortstat": "13 files changed, 612 insertions(+), 28 deletions(-)",
+    "filesChanged": 13,
+    "commits": 10
+  },
+  "contaminationFindings": 0
+}

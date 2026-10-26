@@ -1,0 +1,11 @@
+I'll start from SPEC.md, then implement only the URL/custom-code validation and 409 duplicate handling with tests.SPEC asks for URL/custom-code validation and 409 on duplicates — I'll inspect the current app and tests next.Implementing URL and custom-code validation plus duplicate 409 handling, and adding tests.Running tests and build next.Tests and build passed. Preparing the commit.Validation for `POST /links` is in place and committed (`1f427bc`).
+
+- Absolute `http:` / `https:` URLs only → otherwise `400`
+- Custom codes must match `^[A-Za-z0-9_-]{3,32}$` → otherwise `400`
+- Existing custom code → `409`
+- Inserts no longer overwrite via `INSERT OR REPLACE`
+- Tests cover invalid URLs, invalid codes, and duplicates
+
+`npm test` (6 passing) and `npm run build` both succeeded.
+[worktree] Process exited: actionId=wf-1793016685917-1/p2-validation exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016685917-1/p2-validation/g0.t0.a-abe21c5b5-fdc0fcb3 from the local RepoPool mirror.

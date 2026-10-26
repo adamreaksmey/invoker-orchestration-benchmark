@@ -1,0 +1,45 @@
+{
+  "fixture": "P4",
+  "source": {
+    "commit": "1b27899a82a1ba183ed9953bd90995c13fbe3902"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:31:53.107Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 314,
+      "logTail": "\nup to date in 211ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 203,
+      "logTail": "\n> csvreport@0.1.0 test\n> node --test test/\n\n✔ prints rows as a table (1.141875ms)\n✔ groups and sums a column (0.621542ms)\n✔ prints usage without an input file (0.07775ms)\n✔ parses quoted fields with commas and escaped quotes (0.35225ms)\n✔ parses newlines inside quotes and CRLF line endings (0.067208ms)\n✔ strips a UTF-8 BOM and allows a trailing newline (0.061375ms)\n✔ rejects unknown flags with exit 1 (0.755167ms)\n✔ rejects a missing input file with exit 1 (0.425875ms)\n✔ rejects an invalid format with exit 1 (0.574375ms)\n✔ schema accepts valid typed rows (1.672417ms)\n✔ schema reports a missing required column (1.193917ms)\n✔ schema validates required, enum, min, types, and calendar dates (0.791167ms)\n✔ schema allows missing optional values and enforces max (0.968291ms)\n✔ skip-invalid drops bad rows, prints errors, and exits 0 (0.490292ms)\n✔ groups with sum rounded to 2 decimals, count, and sorted keys (0.450458ms)\n✔ outputs csv format with quoting only when needed (0.451333ms)\n✔ outputs json format with trailing newline and numeric values (0.402375ms)\n✔ writes output to --out and leaves stdout empty (1.16175ms)\nℹ tests 18\nℹ suites 0\nℹ pass 18\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 56.416875\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 278,
+      "logTail": "\n> csvreport@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 6 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 580,
+      "logTail": "✔ parses RFC 4180 quoting, embedded newlines, CRLF, and BOM (29.180042ms)\n✔ handles files without a trailing newline (27.84625ms)\n✔ schema converts numeric columns to JSON numbers (31.381333ms)\n✔ reports each invalid cell with its data row number and exits 2 (29.486917ms)\n✔ row numbers count records, not physical lines (29.368375ms)\n✔ missing schema column fails with a clear error (27.077458ms)\n✔ --skip-invalid drops bad rows and reports the count (28.496625ms)\n✔ groups, sums with 2-decimal rounding, counts, and sorts groups (28.978458ms)\n✔ count works without sum (27.379792ms)\n✔ json output is pretty-printed with a trailing newline (28.759833ms)\n✔ csv output quotes only when needed (27.926125ms)\n✔ table is the default format (27.10575ms)\n✔ --out writes to a file and leaves stdout empty (27.075916ms)\n✔ usage and I/O errors exit 1 (112.632166ms)\n✔ no runtime dependencies were added (0.138542ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 524.977917\n"
+    }
+  ]
+}

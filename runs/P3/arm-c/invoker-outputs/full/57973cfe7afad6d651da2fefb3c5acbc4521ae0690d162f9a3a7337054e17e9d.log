@@ -1,0 +1,10 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` first, then inspect the current changes and tests to identify coverage gaps and README updates for this step. I’ll run the required test and build commands and commit the completed changes.
+[assistant] The existing suite already covers the main parsing rules, restart sync, ranking, AND matching, result limits, and tag sorting. I found one meaningful gap against the spec: it doesn’t verify that create/update/delete changes are reflected by search and tags before each response. I’ll add that coverage and clarify the endpoint and index configuration documentation.
+[assistant] The first `npm test` attempt couldn’t load `express` because dependencies aren’t installed in this worktree. I’ll install the lockfile dependencies, then rerun the required checks and commit.
+[assistant] Completed and committed as `cbeb878` (`Document wiki API and cover index updates`).
+
+Added coverage for blank front matter titles and for search/tag indexes updating after page creation, update, and deletion. Updated the README with the API endpoints, front matter behavior, and configuration.
+
+`npm test` passed (10 tests), and `npm run build` passed.[worktree] Process exited: actionId=wf-1793016703280-1/p3-docs-and-tests exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016703280-1/p3-docs-and-tests/g0.t0.a-af2ad1ccb-fa852dc5 from the local RepoPool mirror.

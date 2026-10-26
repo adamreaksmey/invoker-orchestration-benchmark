@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "commit": "cfdc095b6792be4cd3a2da46e32c344c1aa8a792"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:29:09.646Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 221,
+      "logTail": "\nadded 65 packages in 152ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 309,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (40.030209ms)\n✔ search finds pages containing the query (case-insensitive) (8.522875ms)\n✔ search requires a non-blank q (6.115959ms)\n✔ search ANDs terms, ranks title matches above body, and caps at 20 (19.581666ms)\n✔ search treats punctuation and quotes as plain text and never 500s (4.594667ms)\n✔ normalizeTags trims, lowercases, deduplicates, and sorts (0.148ms)\n✔ parsePageContent prefers front-matter title over heading and slug (0.102417ms)\n✔ parsePageContent accepts comma-form tags (0.037542ms)\n✔ parsePageContent ignores unclosed front matter (0.036375ms)\n✔ parsePageContent uses front-matter title without a heading (0.060333ms)\n✔ GET /pages and GET /pages/:slug include tags; body excludes front matter (4.806833ms)\n✔ PUT returns page with parsed front matter tags and title (4.922667ms)\n✔ createApp runs migrations and indexes existing pages on startup (3.402042ms)\n✔ startup sync reflects added, changed, and removed pages (5.10525ms)\n✔ PUT and DELETE update the index before responding (6.913166ms)\n✔ schema version table and FTS5 content are persisted (2.460208ms)\n✔ GET /tags returns [] when no pages are tagged (3.073166ms)\n✔ GET /tags returns tag counts sorted by count desc then tag asc (5.826666ms)\n✔ PUT and DELETE keep tag endpoints in sync with the index (10.14225ms)\n✔ GET /tags/:tag lists pages by slug; case-insensitive; unknown tag is [] (5.783542ms)\nℹ tests 20\nℹ suites 0\nℹ pass 20\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 190.124458\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 248,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 6 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 200,
+      "logTail": "✔ parses front matter title and normalizes tags (36.612542ms)\n✔ index uses FTS5 and a schema version table (3.966292ms)\n✔ index re-syncs with files changed while the app was down (11.393583ms)\n✔ search is case-insensitive, ANDs terms, and weights titles (5.826083ms)\n✔ search handles punctuation safely and validates the query (5.487459ms)\n✔ search returns at most 20 results (17.234ms)\n✔ PUT and DELETE update the index before responding (7.346083ms)\n✔ tags endpoints count and list pages (7.674416ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 152.123375\n"
+    }
+  ]
+}

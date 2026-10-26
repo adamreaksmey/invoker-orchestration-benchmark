@@ -1,0 +1,24 @@
+{
+  "fixture": "P2",
+  "arm": "A",
+  "startedAt": "2026-10-26T11:54:36Z",
+  "finishedAt": "2026-10-26T11:55:54Z",
+  "wallSeconds": 78,
+  "agentExitCode": 0,
+  "tool": "codex exec",
+  "model": "gpt-reserve",
+  "baselineSha": "c738248ec35c5c48b5e79d0b91423067699a798b",
+  "tipSha": "c9c6982dd16ae7eb200d83faee089b0a11fac803",
+  "tipBranch": "runs/P2/arm-a",
+  "harnessCommittedLeftovers": false,
+  "noChangesMade": false,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "diff": {
+    "shortstat": "2 files changed, 198 insertions(+), 9 deletions(-)",
+    "filesChanged": 2,
+    "commits": 1
+  },
+  "contaminationFindings": 0
+}

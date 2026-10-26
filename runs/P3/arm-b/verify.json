@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "commit": "8d2ace094bbda219513d0c345d6fb6530adc8759"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:11:42.956Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 370,
+      "logTail": "\nadded 65 packages in 253ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 381,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (50.647084ms)\n✔ parses front matter and applies title precedence (11.808334ms)\n✔ search finds pages containing the query (5.441084ms)\n✔ search ANDs every term and treats punctuation as plain text (5.837291ms)\n✔ synchronizes changed, added, and removed files when reopening the app (8.399917ms)\n✔ ranks title matches above body matches and returns safe snippets (6.861875ms)\n✔ limits search results to 20 and preserves the submitted query (7.620667ms)\n✔ lists tags and finds pages by tag case-insensitively (9.606834ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 188.877708\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 337,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 6 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 262,
+      "logTail": "✔ parses front matter title and normalizes tags (56.960625ms)\n✔ index uses FTS5 and a schema version table (4.69275ms)\n✔ index re-syncs with files changed while the app was down (12.667625ms)\n✔ search is case-insensitive, ANDs terms, and weights titles (6.657083ms)\n✔ search handles punctuation safely and validates the query (6.808709ms)\n✔ search returns at most 20 results (9.089083ms)\n✔ PUT and DELETE update the index before responding (10.091916ms)\n✔ tags endpoints count and list pages (6.824292ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 191.770958\n"
+    }
+  ]
+}

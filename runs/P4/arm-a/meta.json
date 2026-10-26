@@ -1,0 +1,24 @@
+{
+  "fixture": "P4",
+  "arm": "A",
+  "startedAt": "2026-10-26T12:16:34Z",
+  "finishedAt": "2026-10-26T12:18:06Z",
+  "wallSeconds": 92,
+  "agentExitCode": 0,
+  "tool": "codex exec",
+  "model": "gpt-reserve",
+  "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+  "tipSha": "241eb486773b2f072abbc058ff146248ab040bdb",
+  "tipBranch": "runs/P4/arm-a",
+  "harnessCommittedLeftovers": false,
+  "noChangesMade": false,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "diff": {
+    "shortstat": "4 files changed, 236 insertions(+), 30 deletions(-)",
+    "filesChanged": 4,
+    "commits": 1
+  },
+  "contaminationFindings": 0
+}

@@ -1,0 +1,66 @@
+
+added 194 packages in 2s
+npm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:
+npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+
+> personal-ledger@0.1.0 test
+> npm run test --workspaces --if-present
+
+
+> @personal-ledger/api@0.1.0 test
+> vitest run --passWithNoTests
+
+
+ RUN  v3.2.7 /Users/adamreaksmey/Desktop/Personal/invoker-orchestration-benchmark/work/invoker/P1-E/worktrees/c98ef4e0840d/experiment-wf-1793015877762-1-p1-verify-g0.t0.a-a25dee63e-def559b2/packages/api
+
+ ✓ src/migrations.test.ts (4 tests) 57ms
+ ✓ src/auth-store.test.ts (3 tests) 207ms
+ ✓ src/ledger-store.test.ts (4 tests) 226ms
+ ✓ src/ledger-service.test.ts (6 tests) 274ms
+ ✓ src/ledger-api.test.ts (4 tests) 322ms
+ ✓ src/auth-routes.test.ts (3 tests) 346ms
+
+ Test Files  6 passed (6)
+      Tests  24 passed (24)
+   Start at  19:09:09
+   Duration  936ms (transform 288ms, setup 0ms, collect 818ms, tests 1.43s, environment 1ms, prepare 538ms)
+
+
+> @personal-ledger/core@0.1.0 test
+> vitest run --passWithNoTests
+
+
+ RUN  v3.2.7 /Users/adamreaksmey/Desktop/Personal/invoker-orchestration-benchmark/work/invoker/P1-E/worktrees/c98ef4e0840d/experiment-wf-1793015877762-1-p1-verify-g0.t0.a-a25dee63e-def559b2/packages/core
+
+ ✓ src/ledger.test.ts (5 tests) 2ms
+ ✓ src/categorization.test.ts (11 tests) 2ms
+ ✓ src/reports.test.ts (3 tests) 9ms
+ ✓ src/auth.test.ts (4 tests) 146ms
+
+ Test Files  4 passed (4)
+      Tests  23 passed (23)
+   Start at  19:09:10
+   Duration  467ms (transform 100ms, setup 0ms, collect 146ms, tests 159ms, environment 0ms, prepare 227ms)
+
+
+> personal-ledger@0.1.0 build
+> npm run build --workspaces --if-present
+
+
+> @personal-ledger/web@0.1.0 build
+> tsc -b && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 30 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.45 kB │ gzip:  0.29 kB
+dist/assets/index-C9L4ThPf.css    7.86 kB │ gzip:  2.41 kB
+dist/assets/index-B_fAIqkN.js   233.14 kB │ gzip: 72.55 kB
+✓ built in 476ms
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-verify/g0.t0.a-a25dee63e-def559b2 from the local RepoPool mirror.

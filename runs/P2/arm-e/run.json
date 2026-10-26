@@ -1,0 +1,12 @@
+{
+  "fixture": "P2",
+  "arm": "E",
+  "startedAt": "2026-10-26T12:11:25Z",
+  "finishedAt": "2026-10-26T12:18:44Z",
+  "wallSeconds": 439,
+  "agentExitCode": 0,
+  "tool": "invoker-cli run --standalone",
+  "agent": "cursor",
+  "workflowId": "wf-1793016685917-1",
+  "workflowStatus": "success"
+}

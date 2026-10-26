@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "commit": "6347791487dad68d34c8f1dd51998f6babe2f09e"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:16:32.953Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 330,
+      "logTail": "\nadded 65 packages in 225ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 386,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (56.178875ms)\n✔ parses front matter tags, removes it from body, and prefers its title (13.221792ms)\n✔ parses comma-separated tags and falls back to heading then slug (8.348708ms)\n✔ front matter does not override title precedence when title is blank (3.779875ms)\n✔ search finds pages containing the query (5.351625ms)\n✔ synchronizes the index across app restarts and supports tags (7.9405ms)\n✔ create, update, and delete keep search and tags indexes current before responding (14.705584ms)\n✔ tag endpoints count and sort tags, and return pages case-insensitively by slug (7.45025ms)\n✔ search ranks title matches, highlights body matches, and validates q (5.739541ms)\n✔ search uses case-insensitive AND terms, ignores punctuation, and caps results (8.726125ms)\nℹ tests 10\nℹ suites 0\nℹ pass 10\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 214.13825\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 347,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 6 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 276,
+      "logTail": "✔ parses front matter title and normalizes tags (49.596291ms)\n✔ index uses FTS5 and a schema version table (5.3575ms)\n✔ index re-syncs with files changed while the app was down (15.213833ms)\n✔ search is case-insensitive, ANDs terms, and weights titles (6.637583ms)\n✔ search handles punctuation safely and validates the query (9.563459ms)\n✔ search returns at most 20 results (8.031875ms)\n✔ PUT and DELETE update the index before responding (10.881791ms)\n✔ tags endpoints count and list pages (7.186417ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 199.212208\n"
+    }
+  ]
+}

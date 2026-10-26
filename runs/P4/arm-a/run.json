@@ -1,0 +1,10 @@
+{
+  "fixture": "P4",
+  "arm": "A",
+  "startedAt": "2026-10-26T12:16:34Z",
+  "finishedAt": "2026-10-26T12:18:06Z",
+  "wallSeconds": 92,
+  "agentExitCode": 0,
+  "tool": "codex exec",
+  "model": "gpt-reserve"
+}

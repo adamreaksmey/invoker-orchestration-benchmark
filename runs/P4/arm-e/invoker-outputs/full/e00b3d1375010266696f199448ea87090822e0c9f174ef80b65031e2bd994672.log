@@ -1,0 +1,11 @@
+I'll start by reading SPEC.md and exploring the repo so we can implement `--schema` validation exactly as specified.Next I'll add schema validation and wire `--schema` / `--skip-invalid` into the CLI, then cover it with tests.Implementing the schema module and wiring it into parse/CLI.Tightening a couple of long functions, then adding tests.The failing test expected no rows; `validateRows` correctly keeps the valid one — fixing that assertion.Schema validation is in place and committed as `7af0661`.
+
+- **`--schema <file.json>`** — validates `string`, `integer`, `number`, `date` (real `YYYY-MM-DD`), `boolean`; supports `required`, `enum`, `min`, `max`
+- Missing schema columns → `error: missing column <name>`, exit 2
+- Invalid cells → `row <n>: <column>: <message>` (1-based data rows); default empty stdout + exit 2
+- **`--skip-invalid`** — drops bad rows, prints `skipped <k> invalid row(s)`, exit 0
+- Integer/number columns converted to numbers before aggregation/output
+
+`npm test` (26) and `npm run build` both passed.
+[worktree] Process exited: actionId=wf-1793017913379-1/p4-schema-validation exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017913379-1/p4-schema-validation/g0.t0.a-acfb07c5c-d9272bf9 from the local RepoPool mirror.

@@ -1,0 +1,8 @@
+I'll read SPEC.md and inspect the existing ledger/core and persistence code so the service matches those domain rules.Checking project structure and whether a thinner persistence API is intended for the service to wrap.Creating `LedgerService` that wraps `LedgerStore` with the core domain rules, plus unit tests.Tests and build passed. Committing the changes.Added `LedgerService` that wraps `LedgerStore` with the same domain rules as core `Ledger` (trimmed non-empty ids/names, unknown/duplicate account errors, safe-integer non-zero `amountCents`). No Express dependency.
+
+- `packages/api/src/ledger-service.ts`
+- `packages/api/src/ledger-service.test.ts` (6 unit tests)
+
+`npm test` and `npm run build` both passed. Committed as `718ab53`.
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-service-layer exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-service-layer/g0.t0.a-a548e3cb8-7e41f1d7 from the local RepoPool mirror.

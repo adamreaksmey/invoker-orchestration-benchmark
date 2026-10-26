@@ -1,0 +1,10 @@
+I'll read SPEC.md and inspect the current codebase so we can add the restart-preservation integration test and fix any persistence issues it finds.Upstream already wired the API; next I'll inspect the integration tests and `createApp` to see how restart preservation should be asserted.The existing restart test passes `db` explicitly; SPEC wants `createApp()` on `DATABASE_PATH`. I'll check how other tests set that env and whether opening via the env path has a persistence bug.Dependencies aren't installed yet — installing them, then I'll refine the restart test to use `DATABASE_PATH`.I'll rewrite the restart test to use `process.env.DATABASE_PATH` and `createApp()` with no `db` option, matching the SPEC.Making the restart test stricter: close the first DB connection, then open a fresh `createApp()` via `DATABASE_PATH`.Tests and build passed; no persistence bug showed up. Committing the restart-preservation test next.Restart-preservation coverage is in place and committed (`49d8ace`).
+
+The integration test in `packages/api/src/ledger-api.test.ts` now:
+1. Writes accounts and transactions through the API
+2. Closes the first DB and opens a new `createApp({ sessionSecret })` with `process.env.DATABASE_PATH` set
+3. Asserts accounts, transactions, and balances are unchanged
+
+No persistence bug showed up — upstream already wires routes to SQLite. `npm test` and `npm run build` both passed.
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-restart-preservation exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-restart-preservation/g0.t0.a-a73b7b9c6-2a147312 from the local RepoPool mirror.

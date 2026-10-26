@@ -1,0 +1,21 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` first, then inspect the existing search endpoint/tests and implement only the FTS5 search behavior. I’ll run the required test/build commands and commit the completed changes.
+[assistant] The existing index already uses FTS5, but I’m tightening the search implementation against the specification rather than assuming it is complete. I’m checking edge cases around FTS query construction, ranking direction, snippet highlighting, and punctuation before editing.
+[assistant] The search now tokenizes and quotes each term before using `MATCH`, so operators/quotes cannot alter the FTS expression or trigger syntax errors. It also deduplicates terms, gives deterministic tie ordering, and keeps title weighting via `bm25(..., 10.0, 1.0)`. I added coverage for AND semantics and punctuation-only input.
+[assistant] All tests and the build pass. I verified the diff is limited to the FTS5 search behavior and its tests; I’m committing it now as required.
+[assistant] Implemented and committed the FTS5 search changes.
+
+- Case-insensitive AND search
+- Safe punctuation/quote handling
+- Title-weighted ranking with numeric scores
+- Deterministic top-20 results
+- Highlighted snippets
+- Added AND/punctuation tests
+
+Verified:
+
+- `npm test` ✅
+- `npm run build` ✅
+
+Commit: `c2aef71`[worktree] Process exited: actionId=wf-1793016385830-1/p3-search exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016385830-1/p3-search/g0.t0.a-a31833ce6-1cdbb04b from the local RepoPool mirror.

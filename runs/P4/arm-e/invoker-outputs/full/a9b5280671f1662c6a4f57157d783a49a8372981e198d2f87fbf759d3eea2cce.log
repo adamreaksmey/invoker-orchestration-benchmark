@@ -1,0 +1,10 @@
+I'll start from SPEC.md and the current code, then implement only the `--group-by` aggregation step locally.Implementing optional `--sum`/`--count`, rounded sums, and sorted group keys in `groupRows` and the CLI.Adding aggregation unit and CLI tests next.Tests and build passed. Committing next.Aggregation is extended and committed as `d931e54`.
+
+- `--group-by` with optional `--sum <col>` (`sum_<col>`, 2-decimal rounding) and `--count`
+- Groups sorted by key ascending; column order: group → sum → count
+- Without `--group-by`, rows pass through unchanged
+- Tests in `test/aggregation.test.js` and `test/cli.test.js`
+
+`npm test` (34 passing) and `npm run build` both succeeded.
+[worktree] Process exited: actionId=wf-1793017913379-1/p4-aggregation exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017913379-1/p4-aggregation/g0.t0.a-aecf2b407-b4514ea6 from the local RepoPool mirror.

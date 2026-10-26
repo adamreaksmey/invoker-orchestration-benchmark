@@ -1,0 +1,31 @@
+
+added 65 packages in 372ms
+
+> link-shortener@0.1.0 test
+> node --test test/
+
+✔ creates a link and redirects to it (41.9415ms)
+✔ returns link metadata and 404 for unknown codes (11.02325ms)
+✔ rejects invalid URLs and custom codes (15.161167ms)
+✔ returns 409 when a custom code already exists (5.208042ms)
+✔ persists links across app instances (6.980833ms)
+✔ records redirect clicks with referers and reports UTC daily stats (13.382125ms)
+✔ click analytics persist across app instances (9.077083ms)
+✔ stores versioned migrations and click referers in SQLite (8.0445ms)
+✔ rate limits link creation by IP within a fixed window (7.794792ms)
+✔ rate limiting does not apply to redirects or stats (8.293167ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 218.490625
+
+> link-shortener@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 4 file(s)
+[worktree] Process exited: actionId=wf-1793015758742-1/p2-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015758742-1/p2-verify/g0.t0.a-aee698fcc-ffc0172c from the local RepoPool mirror.

@@ -1,0 +1,10 @@
+I'll read SPEC.md and inspect the current app structure so we can add fixed-window per-IP rate limiting only on POST /links.Implementing fixed-window per-IP rate limiting on `POST /links`, then adding tests.Rate limiting calls `now()` on POST, which exhausted the click timestamp sequence in an existing test. Updating that test to account for it.Tests and build passed. Committing the changes.Fixed-window per-IP rate limiting is on `POST /links` only.
+
+- Config via `rateLimitMax` / `rateLimitWindowMs` (env defaults 20 / 60000) and injectable `now`
+- Over-limit → `429` + error body + whole-seconds `Retry-After` ≥ 1; no link created
+- Redirects and stats are not limited
+- Tests cover the limit, window reset, and that redirects/stats stay unlimited
+
+`npm test` and `npm run build` both passed. Committed as `7725620`.
+[worktree] Process exited: actionId=wf-1793016685917-1/p2-rate-limit exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016685917-1/p2-rate-limit/g0.t0.a-a7ecb9691-9b248f43 from the local RepoPool mirror.

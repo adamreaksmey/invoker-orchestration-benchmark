@@ -1,0 +1,10 @@
+Doing this locally from SPEC.md. Reading the spec and current code structure next.Implementing SQLite persistence with a migration runner, then updating the app and tests.Tests and build passed. Committing next.Persistence step is done and committed as `6c3fef5`.
+
+**What changed**
+- Added `src/db.js`: `node:sqlite` open, migration runner, `schema_migrations`, and link insert/lookup
+- `createApp({ databasePath })` defaults to `process.env.DATABASE_PATH ?? "shortener.sqlite"`; `app.locals.close()` closes the DB
+- Cross-instance persistence test: create on one app, read on another sharing the same file
+
+**Verification:** `npm test` (3 passing) and `npm run build` both succeeded.
+[worktree] Process exited: actionId=wf-1793016685917-1/p2-persistence exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016685917-1/p2-persistence/g0.t0.a-af949b23f-c19c110d from the local RepoPool mirror.

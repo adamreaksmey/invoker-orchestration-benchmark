@@ -1,0 +1,5 @@
+I'll read SPEC.md and the current core exports, then update only what's needed for this mechanical step.Checking what the service-layer task added so we know which exports are missing.LedgerService landed in the API package; checking whether core should export `auth` or other public surface from earlier work.`auth.ts` is the only core module missing from the barrel. Adding that export.Dependencies aren't installed yet — installing, then re-running tests and build.Updated `packages/core/src/index.ts` to re-export `./auth` (the only core public module that wasn’t in the barrel). Upstream service/store work stayed in `packages/api`; no other core modules were added.
+
+`npm test` and `npm run build` both passed. Committed as `89a728d`.
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-core-exports exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-core-exports/g0.t0.a-a9f17bdea-8345d979 from the local RepoPool mirror.

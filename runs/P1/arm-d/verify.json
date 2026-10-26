@@ -1,0 +1,53 @@
+{
+  "fixture": "P1",
+  "source": {
+    "commit": "fdc867e3c0dda585129d00ed1aa8c31441a19dd1"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "fail",
+  "accepted": false,
+  "verifiedAt": "2026-10-26T11:57:57.135Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1555,
+      "logTail": "\nadded 194 packages in 1s\nnpm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)\nnpm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 2765,
+      "logTail": "\n> personal-ledger@0.1.0 test\n> npm run test --workspaces --if-present\n\n\n> @personal-ledger/api@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-MOA7Lb/packages/api\n\n ✓ src/db.test.ts (3 tests) 13ms\n ✓ src/auth-store.test.ts (3 tests) 198ms\n ✓ src/persistence.test.ts (1 test) 132ms\n ✓ src/ledger-service.test.ts (6 tests) 263ms\n ✓ src/auth-routes.test.ts (3 tests) 326ms\n\n Test Files  5 passed (5)\n      Tests  16 passed (16)\n   Start at  18:57:44\n   Duration  801ms (transform 129ms, setup 0ms, collect 448ms, tests 931ms, environment 1ms, prepare 374ms)\n\n\n> @personal-ledger/core@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-MOA7Lb/packages/core\n\n ✓ src/ledger.test.ts (5 tests) 2ms\n ✓ src/categorization.test.ts (11 tests) 2ms\n ✓ src/reports.test.ts (3 tests) 11ms\n ✓ src/auth.test.ts (4 tests) 144ms\n\n Test Files  4 passed (4)\n      Tests  23 passed (23)\n   Start at  18:57:45\n   Duration  488ms (transform 114ms, setup 0ms, collect 161ms, tests 160ms, environment 1ms, prepare 297ms)\n\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1784,
+      "logTail": "\n> personal-ledger@0.1.0 build\n> npm run build --workspaces --if-present\n\n\n> @personal-ledger/web@0.1.0 build\n> tsc -b && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 30 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.45 kB │ gzip:  0.29 kB\ndist/assets/index-C9L4ThPf.css    7.86 kB │ gzip:  2.41 kB\ndist/assets/index-B_fAIqkN.js   233.14 kB │ gzip: 72.55 kB\n✓ built in 503ms\n"
+    },
+    {
+      "name": "acceptance-api",
+      "command": "cd packages/api && npx vitest run src/ledger-w1.acceptance.test.ts",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1325,
+      "logTail": "\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-MOA7Lb/packages/api\n\n ✓ src/ledger-w1.acceptance.test.ts (3 tests) 243ms\n\n Test Files  1 passed (1)\n      Tests  3 passed (3)\n   Start at  18:57:48\n   Duration  645ms (transform 54ms, setup 0ms, collect 112ms, tests 243ms, environment 0ms, prepare 78ms)\n\n"
+    },
+    {
+      "name": "acceptance-e2e",
+      "command": "CI=1 DATABASE_PATH=\"$(mktemp -d)/ledger.sqlite\" npx playwright test e2e/ledger-w1.acceptance.spec.ts --reporter=line",
+      "exitCode": 1,
+      "passed": false,
+      "durationMs": 7611,
+      "logTail": "\nRunning 1 test using 1 worker\n\n\n\n[1/1] e2e/ledger-w1.acceptance.spec.ts:5:5 › hidden acceptance: ledger flow survives reload and sign-in\n  1) e2e/ledger-w1.acceptance.spec.ts:5:5 › hidden acceptance: ledger flow survives reload and sign-in \n\n    Error: expect(locator).toBeVisible() failed\n\n    Locator: getByText('Everyday checking').first()\n    Expected: visible\n    Timeout: 5000ms\n    Error: element(s) not found\n\n    Call log:\n      - Expect \"toBeVisible\" getByText('Everyday checking').first() with timeout 5000ms\n      - waiting for getByText('Everyday checking').first()\n\n\n      15 |   await page.getByLabel(\"Account name\").fill(\"Everyday checking\");\n      16 |   await page.getByRole(\"button\", { name: /Add account/ }).click();\n    > 17 |   await expect(page.getByText(\"Everyday checking\").first()).toBeVisible();\n         |                                                             ^\n      18 |\n      19 |   await page.getByLabel(\"Description\").fill(\"Paycheck\");\n      20 |   await page.getByLabel(\"Amount\").fill(\"125.50\");\n        at /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-MOA7Lb/e2e/ledger-w1.acceptance.spec.ts:17:61\n\n    Error Context: test-results/ledger-w1.acceptance-hidde-8cffe-survives-reload-and-sign-in/error-context.md\n\n    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────\n    test-results/ledger-w1.acceptance-hidde-8cffe-survives-reload-and-sign-in/trace.zip\n    Usage:\n\n        npx playwright show-trace test-results/ledger-w1.acceptance-hidde-8cffe-survives-reload-and-sign-in/trace.zip\n\n    ────────────────────────────────────────────────────────────────────────────────────────────────\n\n\n  1 failed\n    e2e/ledger-w1.acceptance.spec.ts:5:5 › hidden acceptance: ledger flow survives reload and sign-in \n(node:71034) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    }
+  ]
+}

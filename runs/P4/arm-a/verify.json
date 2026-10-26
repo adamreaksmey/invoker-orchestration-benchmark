@@ -1,0 +1,45 @@
+{
+  "fixture": "P4",
+  "source": {
+    "commit": "241eb486773b2f072abbc058ff146248ab040bdb"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:18:09.618Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 303,
+      "logTail": "\nup to date in 190ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 201,
+      "logTail": "\n> csvreport@0.1.0 test\n> node --test test/\n\n✔ prints rows as a table (1.926959ms)\n✔ groups and sums a column (0.356208ms)\n✔ prints usage without an input file (0.06275ms)\n✔ parses quoted commas, escaped quotes, multiline fields, BOM, and CRLF (0.530167ms)\n✔ validates schema rules and converts typed values (1.031917ms)\n✔ reports every invalid cell and suppresses output by default (0.645834ms)\n✔ skips invalid rows and reports the count (0.459125ms)\n✔ groups with rounded sums, counts, and sorted keys (0.228416ms)\n✔ formats CSV quoting, JSON, and writes --out without stdout (1.815292ms)\n✔ rejects a schema column absent from the header (1.317416ms)\n✔ rejects unknown flags and bad formats with usage errors (0.308875ms)\nℹ tests 11\nℹ suites 0\nℹ pass 11\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 58.074333\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 288,
+      "logTail": "\n> csvreport@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 5 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 589,
+      "logTail": "✔ parses RFC 4180 quoting, embedded newlines, CRLF, and BOM (31.749042ms)\n✔ handles files without a trailing newline (29.464417ms)\n✔ schema converts numeric columns to JSON numbers (30.297667ms)\n✔ reports each invalid cell with its data row number and exits 2 (28.592834ms)\n✔ row numbers count records, not physical lines (29.136083ms)\n✔ missing schema column fails with a clear error (29.709875ms)\n✔ --skip-invalid drops bad rows and reports the count (27.580792ms)\n✔ groups, sums with 2-decimal rounding, counts, and sorts groups (27.568166ms)\n✔ count works without sum (27.744375ms)\n✔ json output is pretty-printed with a trailing newline (25.983667ms)\n✔ csv output quotes only when needed (26.726833ms)\n✔ table is the default format (28.257458ms)\n✔ --out writes to a file and leaves stdout empty (28.506042ms)\n✔ usage and I/O errors exit 1 (114.242375ms)\n✔ no runtime dependencies were added (0.148959ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 528.146167\n"
+    }
+  ]
+}

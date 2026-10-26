@@ -1,0 +1,37 @@
+
+added 65 packages in 265ms
+
+> link-shortener@0.1.0 test
+> node --test test/
+
+✔ creates a link and redirects to it (30.481583ms)
+✔ returns link metadata and 404 for unknown codes (7.887209ms)
+✔ link created by one app instance is readable by another on the same database file (4.7085ms)
+✔ rejects non-absolute and non-http(s) urls with 400 (6.267125ms)
+✔ rejects invalid custom codes with 400 (7.86775ms)
+✔ rejects missing or empty url with 400 (3.514875ms)
+✔ rejects duplicate custom codes with 409 (3.289583ms)
+✔ stats for a link with no clicks returns zeros and null lastClickedAt (4.198209ms)
+✔ redirects record clicks with injectable now and referer; stats aggregate by UTC day (4.85125ms)
+✔ stats requests do not count as clicks (5.161ms)
+✔ stats for unknown code returns 404 (2.247167ms)
+✔ clicks persist across app restarts on the same database file (3.74425ms)
+✔ POST /links allows rateLimitMax requests then returns 429 with Retry-After (5.6295ms)
+✔ redirects and stats are never rate limited (7.941917ms)
+✔ openDatabase applies versioned migrations and records each version (2.768417ms)
+✔ reopening the same database file does not re-apply migrations (1.282ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 163.113917
+
+> link-shortener@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 6 file(s)
+[worktree] Process exited: actionId=wf-1793016685917-1/p2-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016685917-1/p2-verify/g0.t0.a-a7468a172-b6cd8f61 from the local RepoPool mirror.

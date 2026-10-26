@@ -1,0 +1,14 @@
+I'll start with SPEC.md, then review the repo for missing tests and README updates for this docs-and-tests step.Tests look solid for the four areas; I'll check for gaps (especially migrations) and update the README.Adding a migration-runner test and README docs for the new endpoints and config.Tests and build passed. Committing next.Done. Reviewed against SPEC.md; persistence/validation/analytics/rate-limit behavior was already covered, so I filled the remaining gaps and documented the surface.
+
+**Tests**
+- Migration runner: versions recorded in `schema_migrations`, idempotent reopen (`test/db.test.js`)
+- Code length boundaries (3 and 32) plus missing/empty `url` → 400
+
+**Docs**
+- README documents all endpoints (including stats), validation, rate limiting, env vars, and `createApp` options
+
+**Verification:** `npm test` (16 pass) and `npm run build` both succeeded.
+
+**Commit:** `c8cad79` — Document endpoints and fill remaining SPEC test coverage.
+[worktree] Process exited: actionId=wf-1793016685917-1/p2-docs-and-tests exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016685917-1/p2-docs-and-tests/g0.t0.a-af7b5de8d-da8e56de from the local RepoPool mirror.

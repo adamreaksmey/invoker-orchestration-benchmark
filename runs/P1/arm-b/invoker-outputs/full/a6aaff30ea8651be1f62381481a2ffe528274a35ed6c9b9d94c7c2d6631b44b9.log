@@ -1,0 +1,14 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` and inspect the existing migration/schema and package structure, then implement the persistence layer and tests, run both required checks, and commit the changes.
+[assistant] The migrations already provide the required composite user-scoped keys and foreign key relationship. I’m adding a dedicated SQLite ledger store with the same validation/error semantics as the existing domain ledger, keeping user ID in every query, plus file-backed tests that reopen the database to verify persistence and isolation.
+[assistant] The implementation and tests are in place. The first required test run is currently blocked because dependencies are not installed (`vitest: command not found`), so I’m installing the locked workspace dependencies and will rerun the checks.
+[assistant] Both required checks now pass: all 34 tests pass and the web build succeeds. I’m reviewing the final diff for unintended files, then I’ll commit the persistence layer and its tests.
+[assistant] Implemented and committed SQLite ledger persistence.
+
+- Added user-scoped `LedgerStore` for accounts, transactions, and balances.
+- Preserved validation rules and integer cents.
+- Added temporary-file persistence, isolation, and validation tests.
+- `npm test` passes: 34 tests.
+- `npm run build` passes.
+- Commit: `a44e10a`[worktree] Process exited: actionId=wf-1793017714057-1/p1-persistence-layer exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017714057-1/p1-persistence-layer/g0.t0.a-a98fed9f4-3b22bf9a from the local RepoPool mirror.

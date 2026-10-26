@@ -1,0 +1,47 @@
+
+up to date in 217ms
+
+> csvreport@0.1.0 test
+> node --test test/
+
+✔ prints rows as a table (1.465292ms)
+✔ prints pretty JSON with numeric values and a trailing newline (0.918833ms)
+✔ prints CSV with minimal RFC quoting, LF endings, and a trailing newline (0.300625ms)
+✔ writes selected format to --out without writing stdout (0.555291ms)
+✔ rejects an unsupported output format (0.298709ms)
+✔ groups and sums a column (0.261875ms)
+✔ groups by ascending key and adds rounded sums and counts in column order (1.447875ms)
+✔ group-by without sum or count emits one sorted row per group (0.352334ms)
+✔ count can be requested without sum (0.655625ms)
+✔ prints usage without an input file (1.083083ms)
+✔ rejects unknown flags with a usage message (0.716042ms)
+✔ rejects a missing input file with a usage message (0.078167ms)
+✔ reports unreadable input files as I/O errors (0.114916ms)
+✔ rejects options without their required value (0.941666ms)
+✔ validates schema rules, reports 1-based rows, and converts numeric fields (1.338167ms)
+✔ skip-invalid drops bad rows and reports the number skipped (0.486875ms)
+✔ reports schema columns missing from the header (0.443542ms)
+✔ converts valid integer and number values to numbers (0.059917ms)
+✔ uses the first record as the header (0.900833ms)
+✔ parses quoted fields (0.091166ms)
+✔ parses escaped quotes (0.055958ms)
+✔ parses commas inside quoted fields (0.05875ms)
+✔ parses newlines inside quoted fields (0.062375ms)
+✔ accepts CRLF line endings (0.048375ms)
+✔ accepts an optional UTF-8 BOM (0.045167ms)
+✔ accepts an optional trailing newline (0.0515ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 62.500292
+
+> csvreport@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 7 file(s)
+[worktree] Process exited: actionId=wf-1793017348473-1/p4-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017348473-1/p4-verify/g0.t0.a-a20e01ddb-1b754daf from the local RepoPool mirror.

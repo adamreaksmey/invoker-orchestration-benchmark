@@ -1,0 +1,45 @@
+{
+  "fixture": "P2",
+  "source": {
+    "commit": "0bddc70d1e0b9103d969dffa6d1a7c11f21e0c54"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:18:48.605Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 251,
+      "logTail": "\nadded 65 packages in 171ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 298,
+      "logTail": "\n> link-shortener@0.1.0 test\n> node --test test/\n\n✔ creates a link and redirects to it (31.034709ms)\n✔ returns link metadata and 404 for unknown codes (11.055542ms)\n✔ link created by one app instance is readable by another on the same database file (6.909166ms)\n✔ rejects non-absolute and non-http(s) urls with 400 (5.702416ms)\n✔ rejects invalid custom codes with 400 (5.535ms)\n✔ rejects missing or empty url with 400 (3.804ms)\n✔ rejects duplicate custom codes with 409 (2.81675ms)\n✔ stats for a link with no clicks returns zeros and null lastClickedAt (3.982083ms)\n✔ redirects record clicks with injectable now and referer; stats aggregate by UTC day (5.017125ms)\n✔ stats requests do not count as clicks (4.850959ms)\n✔ stats for unknown code returns 404 (2.007708ms)\n✔ clicks persist across app restarts on the same database file (3.68175ms)\n✔ POST /links allows rateLimitMax requests then returns 429 with Retry-After (4.801666ms)\n✔ redirects and stats are never rate limited (6.579333ms)\n✔ openDatabase applies versioned migrations and records each version (3.53575ms)\n✔ reopening the same database file does not re-apply migrations (1.809291ms)\nℹ tests 16\nℹ suites 0\nℹ pass 16\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 170.767125\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 251,
+      "logTail": "\n> link-shortener@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 6 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 179,
+      "logTail": "✔ links survive a restart on the same database file (34.593208ms)\n✔ migrations are recorded in schema_migrations (2.163542ms)\n✔ rejects invalid URLs and custom codes, and duplicate codes (10.095625ms)\n✔ records clicks and reports stats by UTC day (7.417125ms)\n✔ clicks survive a restart (6.216208ms)\n✔ rate limits link creation per window without limiting redirects (9.1995ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 129.451042\n"
+    }
+  ]
+}

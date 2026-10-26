@@ -1,0 +1,24 @@
+{
+  "fixture": "P4",
+  "arm": "D",
+  "startedAt": "2026-10-26T12:29:11Z",
+  "finishedAt": "2026-10-26T12:31:49Z",
+  "wallSeconds": 158,
+  "agentExitCode": 0,
+  "tool": "cursor agent",
+  "model": "grok-4.5",
+  "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+  "tipSha": "1b27899a82a1ba183ed9953bd90995c13fbe3902",
+  "tipBranch": "runs/P4/arm-d",
+  "harnessCommittedLeftovers": false,
+  "noChangesMade": false,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "diff": {
+    "shortstat": "5 files changed, 741 insertions(+), 37 deletions(-)",
+    "filesChanged": 5,
+    "commits": 1
+  },
+  "contaminationFindings": 0
+}

@@ -1,0 +1,11 @@
+I'll read SPEC.md and inspect the web app and smoke test so we can fix the end-to-end ledger flow locally.Checking the web proxy, scripts, and any prior smoke-test expectations for the known frontend issues.The balance bug is locale-dependent `Intl.NumberFormat`; I'll switch to deterministic `$125.50` formatting and enable the smoke test.Dependencies aren't installed yet — installing, then re-running tests and build.Tests and build passed. Committing the changes.Fixed the locale-dependent balance display and enabled the ledger smoke test.
+
+**Changes**
+- `apps/web/src/App.tsx` — replaced `Intl.NumberFormat` with deterministic `formatUsd` so `.balance-amount` always shows `$125.50`; tightened amount/description handling on save
+- `e2e/smoke.spec.ts` — removed `fixme` and covered register → account → transaction → balance → reload → sign out → sign in → balance
+
+**Verification:** `npm test` and `npm run build` both passed.
+
+**Commit:** `e7ef620` — Fix ledger UI balance formatting and enable e2e smoke.
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-web-smoke exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-web-smoke/g0.t0.a-aa29f550f-091a021c from the local RepoPool mirror.

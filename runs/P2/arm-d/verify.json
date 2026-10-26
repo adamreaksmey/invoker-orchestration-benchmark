@@ -1,0 +1,45 @@
+{
+  "fixture": "P2",
+  "source": {
+    "commit": "2b7d56199e0e5c747b70f609b8217f947f9c6c7b"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:11:25.542Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 330,
+      "logTail": "\nadded 65 packages in 221ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 374,
+      "logTail": "\n> link-shortener@0.1.0 test\n> node --test test/\n\n✔ creates a link and redirects to it (41.355792ms)\n✔ returns link metadata and 404 for unknown codes (16.052916ms)\n✔ persists links across app instances on the same database file (9.136166ms)\n✔ rejects non-http URLs and invalid custom codes (7.541709ms)\n✔ returns 409 when a custom code already exists (7.660333ms)\n✔ records click analytics and exposes stats without counting stats views (9.5385ms)\n✔ persists clicks across restarts (9.283167ms)\n✔ rate limits link creation per client IP with Retry-After (11.913125ms)\n✔ migration runner records versions and is idempotent (5.377542ms)\n✔ runMigrations can be applied to an open database (0.303334ms)\nℹ tests 10\nℹ suites 0\nℹ pass 10\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 199.992916\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 416,
+      "logTail": "\n> link-shortener@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 9 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 266,
+      "logTail": "✔ links survive a restart on the same database file (49.513584ms)\n✔ migrations are recorded in schema_migrations (2.850542ms)\n✔ rejects invalid URLs and custom codes, and duplicate codes (17.276541ms)\n✔ records clicks and reports stats by UTC day (12.753333ms)\n✔ clicks survive a restart (10.646625ms)\n✔ rate limits link creation per window without limiting redirects (15.780375ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 196.418208\n"
+    }
+  ]
+}

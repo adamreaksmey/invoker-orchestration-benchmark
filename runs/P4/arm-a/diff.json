@@ -1,0 +1,14 @@
+{
+  "shortstat": "4 files changed, 236 insertions(+), 30 deletions(-)",
+  "filesChanged": 4,
+  "commits": 1,
+  "testFilesTouched": [
+    "M\ttest/cli.test.js"
+  ],
+  "nameStatus": [
+    "M\tsrc/cli.js",
+    "M\tsrc/parse.js",
+    "M\tsrc/report.js",
+    "M\ttest/cli.test.js"
+  ]
+}

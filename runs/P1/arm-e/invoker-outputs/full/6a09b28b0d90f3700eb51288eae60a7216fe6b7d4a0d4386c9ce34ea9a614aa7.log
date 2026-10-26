@@ -1,0 +1,10 @@
+I'll read `SPEC.md` and explore the repo so we can add the migration runner and SQL migrations for this step only.Next I'll inspect the existing DB/auth setup and any migration patterns so the new runner fits cleanly.I'll check sibling experiments and the repo layout for an expected migrations pattern.Found reference implementations — I'll read those migration patterns and mirror them for this step.Running tests and build next to confirm migrations and auth still work.Tests and build passed. Committing the migration changes now.Migration runner is in place and committed (`5e97671`).
+
+**What landed**
+- `packages/api/src/migrations.ts` — versioned runner with `schema_migrations`; v1 auth (`IF NOT EXISTS`), v2 `accounts`/`transactions` keyed by `user_id`
+- `packages/api/src/db.ts` — `openDatabase` now runs migrations
+- `packages/api/src/migrations.test.ts` — empty DB apply, idempotency, legacy auth upgrade, rollback
+
+HTTP routes untouched. `npm test` and `npm run build` both passed.
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-migrations exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-migrations/g0.t0.a-aad9c3c50-e074c7a0 from the local RepoPool mirror.

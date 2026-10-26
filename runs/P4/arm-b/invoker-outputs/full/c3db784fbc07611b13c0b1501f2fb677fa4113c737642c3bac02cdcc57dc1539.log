@@ -1,0 +1,20 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` and inspect the existing CLI/parser/tests, then implement only schema validation, add focused tests, run both required commands, and commit the changes.
+[assistant] The current CLI has RFC parsing in place but no schema, format, or skip-invalid handling. I’ll keep this step narrowly focused: add schema loading/validation and numeric conversion, wire `--schema`/`--skip-invalid`, and preserve the existing table/aggregation behavior while ensuring validation errors never produce default stdout.
+[assistant] Schema validation and CLI wiring are implemented, including header-level missing-column checks, per-cell errors, row filtering, and numeric conversion. I’ve added tests covering valid typed data, invalid required/type/date values, skip-invalid behavior, and missing schema columns; now I’m running the required verification.
+[assistant] Verification passed initially; I added one more focused test for the remaining invalid-rule paths (`enum`, `min`, `max`, and `boolean`) so the validation coverage matches the specification more completely. I’m rerunning the checks before committing.
+[assistant] Implemented and committed schema validation.
+
+- Added `--schema` and `--skip-invalid`
+- Supports all specified types and rules
+- Numeric conversion for integer/number fields
+- Correct validation errors, exit codes, and row skipping
+- Added comprehensive tests
+
+Verification passed:
+
+- `npm test` — 15 tests passed
+- `npm run build` — passed
+
+Commit: `e50748e`[worktree] Process exited: actionId=wf-1793017089867-1/p4-schema-validation exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017089867-1/p4-schema-validation/g0.t0.a-a25dd7c98-3cac850c from the local RepoPool mirror.

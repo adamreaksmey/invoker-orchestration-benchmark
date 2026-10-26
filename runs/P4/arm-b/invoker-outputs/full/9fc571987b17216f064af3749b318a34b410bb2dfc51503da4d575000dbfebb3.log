@@ -1,0 +1,17 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` and inspect the CLI, tests, and README, then implement the strict error handling and documentation updates, run both required commands, and commit the result.
+[assistant] The CLI already has most of the requested exit-code behavior from the prior work. I found one strictness gap: single-dash flags such as `-v` are currently treated as input paths instead of unknown flags. I’ll close that gap, strengthen coverage for missing/unreadable files and option values, and document all supported options and failure modes.
+[assistant] The strictness tests now cover unknown short/long flags, absent input paths, unreadable input paths, and missing option values; the implementation and README are updated. Both `npm test` and `npm run build` pass, so I’m doing the final diff check and committing.
+[assistant] Implemented and committed as `1567404`.
+
+Changes:
+- Strictly rejects unknown flags, including short flags.
+- Handles missing/unreadable input files with `error:` stderr messages and exit 1.
+- Tests missing option values and strict CLI failures.
+- Updated `README.md` with options and error behavior.
+
+Verification passed:
+
+- `npm test`
+- `npm run build`[worktree] Process exited: actionId=wf-1793017089867-1/p4-cli-errors-and-docs exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017089867-1/p4-cli-errors-and-docs/g0.t0.a-a932c580d-ba71481d from the local RepoPool mirror.

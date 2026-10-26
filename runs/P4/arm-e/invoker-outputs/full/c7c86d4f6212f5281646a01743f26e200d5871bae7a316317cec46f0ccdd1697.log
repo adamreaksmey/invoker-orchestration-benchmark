@@ -1,0 +1,13 @@
+I'll start from SPEC.md, then implement strict CLI argument errors and docs for this step only.CLI error paths are largely in place; I'll tighten value-flag and schema I/O handling, add the missing error tests, and update the README.I need to distinguish schema I/O failures (exit 1) from validation failures (exit 2).I'll trim `applySchema` slightly to stay under the 30-line limit, then commit.Strict CLI error handling is in place and committed as `f040f4b`.
+
+**CLI (`src/cli.js`)**
+- Unknown flags, missing flag values, missing/unreadable input or schema, and bad `--format` → exit **1**, stderr starts with `usage:` or `error:`
+- Schema I/O failures are exit 1 (not validation exit 2)
+
+**Tests** — coverage for unknown flag, missing file, bad `--format`, missing flag value, unreadable schema
+
+**README** — options, schema, examples, and exit codes documented
+
+`npm test` (47 pass) and `npm run build` both succeeded before the commit.
+[worktree] Process exited: actionId=wf-1793017913379-1/p4-cli-errors-and-docs exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017913379-1/p4-cli-errors-and-docs/g0.t0.a-a488cc037-9d5f7e6c from the local RepoPool mirror.

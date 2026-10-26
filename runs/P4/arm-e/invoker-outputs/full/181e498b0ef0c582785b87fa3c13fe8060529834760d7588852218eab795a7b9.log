@@ -1,0 +1,10 @@
+I'll start by reading SPEC.md and inspecting the repo so we can add `--format` / `--out` exactly as specified.Next I'll inspect the CLI and report modules, plus existing tests, so we can wire `--format` and `--out` without breaking aggregation.Implementing formatters in `report.js`, then wiring `--format` / `--out` into the CLI.Fixing schema I/O so failures exit 1 (not validation 2), then adding the format tests.Tests and build passed. Checking for rule violations, then committing.Trimming `applyFlag` and `run` to stay under the 30-line limit, then committing.`--format table|csv|json` (default `table`) and `--out <path>` are in place.
+
+- **json**: 2-space pretty-print, trailing newline, numbers stay JSON numbers  
+- **csv**: quote only when needed, `\n` endings, trailing newline  
+- **`--out`**: writes the file; stdout stays empty  
+- Invalid `--format` → exit 1 with `error:`
+
+`npm test` (42) and `npm run build` both passed. Commit: `02a96c6`.
+[worktree] Process exited: actionId=wf-1793017913379-1/p4-output-formats exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017913379-1/p4-output-formats/g0.t0.a-a452398dd-e3db29bd from the local RepoPool mirror.

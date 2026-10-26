@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "commit": "c2cadd0564aa0d8c0c577a5fb310f4f3cbed050d"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T12:06:25.444Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 427,
+      "logTail": "\nadded 65 packages in 318ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 323,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (48.763125ms)\n✔ search finds pages containing the query (9.343ms)\n✔ parses front matter and applies title precedence (0.247833ms)\n✔ synchronizes files, searches with ranking, and serves tags (13.219083ms)\n✔ rejects missing search query (4.329292ms)\nℹ tests 5\nℹ suites 0\nℹ pass 5\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 151.201125\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 333,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 6 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 257,
+      "logTail": "✔ parses front matter title and normalizes tags (50.978875ms)\n✔ index uses FTS5 and a schema version table (7.241416ms)\n✔ index re-syncs with files changed while the app was down (13.28825ms)\n✔ search is case-insensitive, ANDs terms, and weights titles (5.952792ms)\n✔ search handles punctuation safely and validates the query (8.191666ms)\n✔ search returns at most 20 results (8.553583ms)\n✔ PUT and DELETE update the index before responding (14.10275ms)\n✔ tags endpoints count and list pages (6.165125ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 190.79\n"
+    }
+  ]
+}

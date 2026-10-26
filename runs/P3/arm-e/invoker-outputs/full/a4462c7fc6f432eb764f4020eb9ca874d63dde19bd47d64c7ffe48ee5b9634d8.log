@@ -1,0 +1,10 @@
+I'll read SPEC.md and inspect the repo so we can add the SQLite search index for this step only.Checking Node's sqlite API and whether helpers need to close the index DB on shutdown.Implementing the wiki index module and wiring it into the app.Tests and build passed. Committing changes.SQLite page index is in place and committed as `5eb0a70`.
+
+**What landed**
+- `src/wiki-index.js` — `node:sqlite` index with migration runner + `schema_version`, `pages` + `page_tags`, and FTS5 over title/body
+- `createApp({ indexPath })` defaults to `WIKI_INDEX_PATH` / `wiki-index.sqlite`; syncs the pages dir on startup; updates the index on PUT/DELETE before responding; `app.locals.close()` closes the DB
+- Tests for migrations, startup sync (add/change/remove), PUT/DELETE index updates, and FTS persistence
+
+`npm test` (11 pass) and `npm run build` both succeeded. Search ranking and tags API are left for later steps.
+[worktree] Process exited: actionId=wf-1793017311853-1/p3-search-index exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017311853-1/p3-search-index/g0.t0.a-a7c901e1f-96051241 from the local RepoPool mirror.

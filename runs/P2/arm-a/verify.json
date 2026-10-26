@@ -1,0 +1,45 @@
+{
+  "fixture": "P2",
+  "source": {
+    "commit": "c9c6982dd16ae7eb200d83faee089b0a11fac803"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T11:55:57.813Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 403,
+      "logTail": "\nadded 65 packages in 303ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 334,
+      "logTail": "\n> link-shortener@0.1.0 test\n> node --test test/\n\n✔ creates a link and redirects to it (37.354667ms)\n✔ returns link metadata and 404 for unknown codes (13.684917ms)\n✔ persists links across app instances (7.068792ms)\n✔ validates URLs and custom codes and rejects duplicates (7.444167ms)\n✔ records redirect clicks and reports UTC daily stats (8.401208ms)\n✔ limits link creation per IP for a fixed window (9.534042ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 162.52225\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 297,
+      "logTail": "\n> link-shortener@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 4 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 289,
+      "logTail": "✔ links survive a restart on the same database file (53.864916ms)\n✔ migrations are recorded in schema_migrations (3.341666ms)\n✔ rejects invalid URLs and custom codes, and duplicate codes (18.4565ms)\n✔ records clicks and reports stats by UTC day (10.32775ms)\n✔ clicks survive a restart (13.349125ms)\n✔ rate limits link creation per window without limiting redirects (25.037041ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 211.832958\n"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "shortstat": "2 files changed, 198 insertions(+), 9 deletions(-)",
+  "filesChanged": 2,
+  "commits": 1,
+  "testFilesTouched": [
+    "M\ttest/app.test.js"
+  ],
+  "nameStatus": [
+    "M\tsrc/app.js",
+    "M\ttest/app.test.js"
+  ]
+}

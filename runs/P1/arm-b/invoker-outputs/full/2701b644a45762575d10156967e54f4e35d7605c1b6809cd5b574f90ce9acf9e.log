@@ -1,0 +1,19 @@
+Reading additional input from stdin...
+2026-10-26T12:34:49.743686Z ERROR codex_core::tools::router: error=write_stdin failed: Unknown process id 15452
+2026-10-26T12:35:20.989092Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`/bin/zsh -lc 'rm -f apps/web/tsconfig.tsbuildinfo && npm test && npm run build && git diff --check && git status --short && git diff -- apps/web/src/App.tsx e2e/smoke.spec.ts'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }
+[assistant] I’ll read `SPEC.md` first, then trace the frontend flow and smoke test, make only the required fixes, run the mandated test/build commands, and commit the result.
+[assistant] The frontend already uses the persisted account/transaction endpoints, but the acceptance smoke is still disabled. I’m checking the existing test expectations and runtime wiring now so the enabled flow covers persistence and re-authentication without introducing new product behavior.
+[assistant] The acceptance test is now enabled and exercises registration, account creation, transaction entry, balance display, reload, sign-out, and sign-in. Dependencies were missing in the worktree, so I installed the locked workspace dependencies before verification.
+[assistant] The enabled smoke test exposed the frontend bug the task calls for: after an awaited API request, React’s `event.currentTarget` is `null`, so account creation succeeded but the handler threw before reloading the ledger. I’m fixing both form handlers by capturing the form element before the await, then rerunning the full verification.
+[assistant] The end-to-end smoke now passes. The form reset fix is applied to both account and transaction submission handlers; I’m doing the required final `npm test` and `npm run build` checks, then I’ll commit only the intended source/test changes.
+[assistant] Implemented and committed as `2e95b82`.
+
+Changes:
+- Fixed async form reset bug in account and transaction handlers.
+- Enabled the full persisted-ledger E2E smoke test.
+
+Passed:
+- `npm test`
+- `npm run build`
+- `npm run test:e2e` (2 tests)[worktree] Process exited: actionId=wf-1793017714057-1/p1-web-smoke exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017714057-1/p1-web-smoke/g0.t0.a-add14b503-d19c869d from the local RepoPool mirror.

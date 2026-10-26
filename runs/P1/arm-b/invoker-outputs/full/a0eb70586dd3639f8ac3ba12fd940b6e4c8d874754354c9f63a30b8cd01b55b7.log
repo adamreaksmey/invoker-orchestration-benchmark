@@ -1,0 +1,15 @@
+Reading additional input from stdin...
+2026-10-26T12:32:45.663450Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"Failed to create unified exec process: No such file or directory (os error 2)\")" }
+2026-10-26T12:32:47.364782Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"Failed to create unified exec process: No such file or directory (os error 2)\")" }
+[assistant] I’m reading `SPEC.md` and the current core index/API surface first, then I’ll make only the required export changes, run both checks, and commit.
+[assistant] The upstream work added persistence/service code under `packages/api`, while `packages/core/src/index.ts` currently omits the existing public auth module. I’m checking the commit diffs and package entrypoints to identify the exact new core-facing export required, without exporting API internals or unrelated modules.
+[assistant] The required change is confirmed by the repository history: the core barrel must add `export * from "./auth";`. No API service/store export belongs in `packages/core/src/index.ts`. I’m applying that single-line change now.
+[assistant] The export change is complete, but the first verification attempt hit a missing local dependency (`vitest: command not found`), not a test failure. I’m installing the repository dependencies, then I’ll rerun both required commands and commit.
+[assistant] Both required checks now pass: 15 API tests, 23 core tests, and the web build completed successfully. I’m checking the final diff for scope, then committing the single export-line change.
+[assistant] Implemented and committed the core export update:
+
+- Added `export * from "./auth";` to `packages/core/src/index.ts`
+- `npm test` passed
+- `npm run build` passed
+- Commit: `48b0840 Export auth helpers from core barrel`[worktree] Process exited: actionId=wf-1793017714057-1/p1-core-exports exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017714057-1/p1-core-exports/g0.t0.a-a209dc7f8-ebee6bc5 from the local RepoPool mirror.

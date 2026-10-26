@@ -1,0 +1,11 @@
+{
+  "scannedAt": "2026-10-26T12:44:19.438Z",
+  "signatures": [
+    "invoker-cli\\s+(run|submit|retry|wait)\\b",
+    "invoker_(submit_plan|prepare_plan_review|list_tasks|get_workflow)",
+    "submit-plan\\.sh",
+    "mcp__invoker",
+    "packages\\/cli\\/dist\\/index\\.js\\s+run\\b"
+  ],
+  "findings": []
+}

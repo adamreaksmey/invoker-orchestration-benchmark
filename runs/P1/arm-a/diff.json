@@ -1,0 +1,16 @@
+{
+  "shortstat": "5 files changed, 235 insertions(+), 30 deletions(-)",
+  "filesChanged": 5,
+  "commits": 1,
+  "testFilesTouched": [
+    "M\tpackages/api/src/auth-routes.test.ts",
+    "A\tpackages/api/src/ledger-service.test.ts"
+  ],
+  "nameStatus": [
+    "M\tpackages/api/src/auth-routes.test.ts",
+    "M\tpackages/api/src/db.ts",
+    "M\tpackages/api/src/index.ts",
+    "A\tpackages/api/src/ledger-service.test.ts",
+    "A\tpackages/api/src/ledger-service.ts"
+  ]
+}

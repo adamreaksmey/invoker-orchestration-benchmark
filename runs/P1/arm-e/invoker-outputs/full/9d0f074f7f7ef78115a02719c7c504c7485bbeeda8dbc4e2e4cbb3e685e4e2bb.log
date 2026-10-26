@@ -1,0 +1,10 @@
+I'll stay local and start from SPEC.md, then wire the persisted ledger service into the API and add the integration tests.Next I’ll inspect the ledger service and existing API tests so the integration matches the current contracts.Updating `createApp` to use the persisted ledger service, then adding the integration tests.Tests and build passed. Committing next.Done. API ledger routes now use `LedgerService`/`LedgerStore` scoped to the authenticated user instead of the in-memory `Map`.
+
+**Changes**
+- `packages/api/src/index.ts` — per-request persisted service; routes, JSON shapes, statuses, and auth unchanged
+- `packages/api/src/ledger-api.test.ts` — supertest coverage for accounts, transactions, balance, error mapping, and restart survival on the same DB path
+
+**Verified:** `npm test` and `npm run build` both passed.  
+**Commit:** `ddeb96e` — Wire API routes to persisted LedgerService per user.
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-api-integration exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-api-integration/g0.t0.a-ae320e7ca-cbedfe1b from the local RepoPool mirror.

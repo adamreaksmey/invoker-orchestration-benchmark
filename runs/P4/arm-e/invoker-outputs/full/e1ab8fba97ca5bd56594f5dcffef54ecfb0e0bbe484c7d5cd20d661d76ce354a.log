@@ -1,0 +1,5 @@
+I'll start from `SPEC.md`, then implement only the RFC 4180 parser step locally.Next I'll inspect the current parser and tests so the RFC 4180 change fits the existing shape.Implementing the RFC 4180 parser and edge-case tests next.Tests and build passed. Committing next.Replaced the comma splitter in `src/parse.js` with an RFC 4180 parser (quoted fields, `""` escapes, commas/newlines in quotes, CRLF/LF, optional BOM, optional trailing newline; first record = header). Added edge-case coverage in `test/parse.test.js`.
+
+`npm test` (13 pass) and `npm run build` both succeeded. Committed as `ee33764`.
+[worktree] Process exited: actionId=wf-1793017913379-1/p4-rfc-parser exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017913379-1/p4-rfc-parser/g0.t0.a-acf603631-8e8591c1 from the local RepoPool mirror.

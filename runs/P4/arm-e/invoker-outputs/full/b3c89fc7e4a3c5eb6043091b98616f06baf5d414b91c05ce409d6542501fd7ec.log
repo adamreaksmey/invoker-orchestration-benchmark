@@ -1,0 +1,68 @@
+
+up to date in 243ms
+
+> csvreport@0.1.0 test
+> node --test test/
+
+✔ sums a column rounded to two decimals (0.78275ms)
+✔ counts rows per group (0.089292ms)
+✔ orders columns as group, sum, then count (0.071625ms)
+✔ sorts groups by key ascending (0.071666ms)
+✔ cli --count with --group-by prints counts (1.404417ms)
+✔ cli --group-by --sum --count prints all aggregate columns (1.10975ms)
+✔ without --group-by outputs rows as-is (1.057375ms)
+✔ prints rows as a table (2.3145ms)
+✔ groups and sums a column (0.957917ms)
+✔ groups with sum and count in sorted order (0.817708ms)
+✔ prints usage without an input file (0.094792ms)
+✔ rejects unknown flags with exit 1 (0.613541ms)
+✔ rejects missing input file with exit 1 (0.13ms)
+✔ rejects invalid --format with exit 1 (1.472458ms)
+✔ rejects missing flag values with exit 1 (1.20625ms)
+✔ rejects unreadable schema file with exit 1 (1.513083ms)
+✔ exits 2 with empty stdout when schema validation fails (5.860291ms)
+✔ reports missing schema columns on stderr and exits 2 (2.269333ms)
+✔ skips invalid rows with --skip-invalid and continues (2.494417ms)
+✔ converts numeric schema columns before grouping (2.106083ms)
+✔ formatJson pretty-prints with 2-space indent and trailing newline (0.547459ms)
+✔ formatJson emits numeric values as JSON numbers (0.363542ms)
+✔ formatCsv quotes only when needed and uses lf with trailing newline (0.498ms)
+✔ cli --format json prints pretty json array (1.476833ms)
+✔ cli --format csv prints header and rows (0.521333ms)
+✔ cli defaults to table format (0.407541ms)
+✔ cli --out writes file and leaves stdout empty (2.04575ms)
+✔ cli rejects invalid --format with exit 1 (1.590375ms)
+✔ parses a simple comma-separated file with trailing newline (4.950416ms)
+✔ parses files without a trailing newline (0.341834ms)
+✔ parses CRLF line endings (0.201417ms)
+✔ strips an optional UTF-8 BOM (0.161208ms)
+✔ keeps commas inside quoted fields (0.188708ms)
+✔ unescapes doubled quotes inside quoted fields (0.145ms)
+✔ keeps newlines inside quoted fields (0.112542ms)
+✔ keeps CRLF sequences inside quoted fields (0.129583ms)
+✔ treats the first record as the header (0.346625ms)
+✔ preserves empty fields (0.1985ms)
+✔ accepts valid rows and converts integer and number columns (4.137459ms)
+✔ reports missing schema columns (0.156875ms)
+✔ rejects missing required values with 1-based row numbers (0.100084ms)
+✔ allows missing optional values (0.135625ms)
+✔ rejects values outside enum (0.223667ms)
+✔ rejects invalid integer, number, date, and boolean cells (0.296542ms)
+✔ rejects non-calendar dates that match YYYY-MM-DD shape (0.169417ms)
+✔ enforces min and max on integer and number columns (0.177042ms)
+✔ keeps valid rows when some rows are invalid (0.318625ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 47
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 95.521042
+
+> csvreport@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 10 file(s)
+[worktree] Process exited: actionId=wf-1793017913379-1/p4-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017913379-1/p4-verify/g0.t0.a-a5cac4926-867a100b from the local RepoPool mirror.

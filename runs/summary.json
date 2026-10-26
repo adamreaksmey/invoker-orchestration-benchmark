@@ -1,0 +1,1025 @@
+{
+  "generatedAt": "2026-10-26T12:44:19.727Z",
+  "cells": [
+    {
+      "fixture": "P1",
+      "arm": "A",
+      "startedAt": "2026-10-26T12:26:50Z",
+      "finishedAt": "2026-10-26T12:28:18Z",
+      "wallSeconds": 88,
+      "agentExitCode": 0,
+      "tool": "codex exec",
+      "model": "gpt-reserve",
+      "baselineSha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e",
+      "tipSha": "94b020df115650d9485e0f6c8e30d70a22a4544f",
+      "tipBranch": "runs/P1/arm-a",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "fail",
+      "accepted": false,
+      "diff": {
+        "shortstat": "5 files changed, 235 insertions(+), 30 deletions(-)",
+        "filesChanged": 5,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 672326,
+          "cachedInput": 606848,
+          "uncachedInput": 65478,
+          "output": 9149,
+          "reasoningOutput": 2289,
+          "sessions": 1
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 672326,
+            "cachedInput": 606848,
+            "uncachedInput": 65478,
+            "output": 9149,
+            "reasoningOutput": 2289,
+            "sessions": 1
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 4,
+          "endPercent": 4,
+          "sameWindow": true,
+          "deltaPercent": 0
+        }
+      }
+    },
+    {
+      "fixture": "P1",
+      "arm": "B",
+      "startedAt": "2026-10-26T12:28:33Z",
+      "finishedAt": "2026-10-26T12:35:48Z",
+      "wallSeconds": 435,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793017714057-1",
+      "workflowStatus": "success",
+      "baselineSha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e",
+      "tipSha": "6401ce139be0f9b1edbf0bd72cb4163ca6d1c1ad",
+      "tipBranch": "runs/P1/arm-b",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "13 files changed, 612 insertions(+), 28 deletions(-)",
+        "filesChanged": 13,
+        "commits": 10
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 2520701,
+          "cachedInput": 2323968,
+          "uncachedInput": 196733,
+          "output": 33470,
+          "reasoningOutput": 7416,
+          "sessions": 7
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 2520701,
+            "cachedInput": 2323968,
+            "uncachedInput": 196733,
+            "output": 33470,
+            "reasoningOutput": 7416,
+            "sessions": 7
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 4,
+          "endPercent": 5,
+          "sameWindow": true,
+          "deltaPercent": 1
+        }
+      }
+    },
+    {
+      "fixture": "P1",
+      "arm": "C",
+      "startedAt": "2026-10-26T12:36:02Z",
+      "finishedAt": "2026-10-26T12:43:44Z",
+      "wallSeconds": 462,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793018162575-1",
+      "workflowStatus": "success",
+      "baselineSha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e",
+      "tipSha": "49d371f2d804ad0f22dda613ce4487f23667d105",
+      "tipBranch": "runs/P1/arm-c",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "13 files changed, 541 insertions(+), 18 deletions(-)",
+        "filesChanged": 13,
+        "commits": 10
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 2771798,
+          "cachedInput": 2474624,
+          "uncachedInput": 297174,
+          "output": 30086,
+          "reasoningOutput": 5336,
+          "sessions": 7
+        },
+        "byModel": {
+          "gpt-6-luna": {
+            "totalInput": 930265,
+            "cachedInput": 819200,
+            "uncachedInput": 111065,
+            "output": 10146,
+            "reasoningOutput": 1654,
+            "sessions": 3
+          },
+          "gpt-reserve": {
+            "totalInput": 1841533,
+            "cachedInput": 1655424,
+            "uncachedInput": 186109,
+            "output": 19940,
+            "reasoningOutput": 3682,
+            "sessions": 4
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 5,
+          "endPercent": 6,
+          "sameWindow": true,
+          "deltaPercent": 1
+        }
+      }
+    },
+    {
+      "fixture": "P1",
+      "arm": "D",
+      "startedAt": "2026-10-26T11:54:35Z",
+      "finishedAt": "2026-10-26T11:57:39Z",
+      "wallSeconds": 184,
+      "agentExitCode": 0,
+      "tool": "cursor agent",
+      "model": "grok-4.5",
+      "baselineSha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e",
+      "tipSha": "fdc867e3c0dda585129d00ed1aa8c31441a19dd1",
+      "tipBranch": "runs/P1/arm-d",
+      "harnessCommittedLeftovers": true,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "fail",
+      "accepted": false,
+      "diff": {
+        "shortstat": "9 files changed, 580 insertions(+), 38 deletions(-)",
+        "filesChanged": 9,
+        "commits": 2
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 598271,
+          "cachedInput": 543232,
+          "uncachedInput": 55039,
+          "output": 18327,
+          "reasoningOutput": 0,
+          "sessions": 1
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 598271,
+            "cachedInput": 543232,
+            "uncachedInput": 55039,
+            "output": 18327,
+            "reasoningOutput": 0,
+            "sessions": 1
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P1",
+      "arm": "E",
+      "startedAt": "2026-10-26T11:57:57Z",
+      "finishedAt": "2026-10-26T12:09:13Z",
+      "wallSeconds": 676,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "cursor",
+      "workflowId": "wf-1793015877762-1",
+      "workflowStatus": "success",
+      "baselineSha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e",
+      "tipSha": "0658d68b5fc5ff3a9709b24e92970af9bb705b5c",
+      "tipBranch": "runs/P1/arm-e",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "fail",
+      "accepted": false,
+      "diff": {
+        "shortstat": "13 files changed, 982 insertions(+), 31 deletions(-)",
+        "filesChanged": 13,
+        "commits": 11
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 2273643,
+          "cachedInput": 1978880,
+          "uncachedInput": 294763,
+          "output": 46251,
+          "reasoningOutput": 0,
+          "sessions": 7
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 2273643,
+            "cachedInput": 1978880,
+            "uncachedInput": 294763,
+            "output": 46251,
+            "reasoningOutput": 0,
+            "sessions": 7
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P2",
+      "arm": "A",
+      "startedAt": "2026-10-26T11:54:36Z",
+      "finishedAt": "2026-10-26T11:55:54Z",
+      "wallSeconds": 78,
+      "agentExitCode": 0,
+      "tool": "codex exec",
+      "model": "gpt-reserve",
+      "baselineSha": "c738248ec35c5c48b5e79d0b91423067699a798b",
+      "tipSha": "c9c6982dd16ae7eb200d83faee089b0a11fac803",
+      "tipBranch": "runs/P2/arm-a",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "2 files changed, 198 insertions(+), 9 deletions(-)",
+        "filesChanged": 2,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 306435,
+          "cachedInput": 279680,
+          "uncachedInput": 26755,
+          "output": 8884,
+          "reasoningOutput": 1538,
+          "sessions": 1
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 306435,
+            "cachedInput": 279680,
+            "uncachedInput": 26755,
+            "output": 8884,
+            "reasoningOutput": 1538,
+            "sessions": 1
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 0,
+          "endPercent": 0,
+          "sameWindow": false,
+          "deltaPercent": null
+        }
+      }
+    },
+    {
+      "fixture": "P2",
+      "arm": "B",
+      "startedAt": "2026-10-26T11:55:58Z",
+      "finishedAt": "2026-10-26T12:00:18Z",
+      "wallSeconds": 260,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793015758742-1",
+      "workflowStatus": "success",
+      "baselineSha": "c738248ec35c5c48b5e79d0b91423067699a798b",
+      "tipSha": "a0fc21116a827ce4f8dedb268e2960c9a99980cc",
+      "tipBranch": "runs/P2/arm-b",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "3 files changed, 463 insertions(+), 16 deletions(-)",
+        "filesChanged": 3,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1102139,
+          "cachedInput": 971648,
+          "uncachedInput": 130491,
+          "output": 21768,
+          "reasoningOutput": 5191,
+          "sessions": 5
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 1102139,
+            "cachedInput": 971648,
+            "uncachedInput": 130491,
+            "output": 21768,
+            "reasoningOutput": 5191,
+            "sessions": 5
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 0,
+          "endPercent": 1,
+          "sameWindow": true,
+          "deltaPercent": 1
+        }
+      }
+    },
+    {
+      "fixture": "P2",
+      "arm": "C",
+      "startedAt": "2026-10-26T12:00:22Z",
+      "finishedAt": "2026-10-26T12:04:35Z",
+      "wallSeconds": 253,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793016022854-1",
+      "workflowStatus": "success",
+      "baselineSha": "c738248ec35c5c48b5e79d0b91423067699a798b",
+      "tipSha": "183d3645eafa241d4c53d22037ade53f8a8d5081",
+      "tipBranch": "runs/P2/arm-c",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "3 files changed, 372 insertions(+), 11 deletions(-)",
+        "filesChanged": 3,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1075283,
+          "cachedInput": 948608,
+          "uncachedInput": 126675,
+          "output": 15609,
+          "reasoningOutput": 3093,
+          "sessions": 5
+        },
+        "byModel": {
+          "gpt-6-luna": {
+            "totalInput": 697558,
+            "cachedInput": 602880,
+            "uncachedInput": 94678,
+            "output": 7559,
+            "reasoningOutput": 1217,
+            "sessions": 3
+          },
+          "gpt-reserve": {
+            "totalInput": 377725,
+            "cachedInput": 345728,
+            "uncachedInput": 31997,
+            "output": 8050,
+            "reasoningOutput": 1876,
+            "sessions": 2
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 1,
+          "endPercent": 1,
+          "sameWindow": true,
+          "deltaPercent": 0
+        }
+      }
+    },
+    {
+      "fixture": "P2",
+      "arm": "D",
+      "startedAt": "2026-10-26T12:09:33Z",
+      "finishedAt": "2026-10-26T12:11:21Z",
+      "wallSeconds": 108,
+      "agentExitCode": 0,
+      "tool": "cursor agent",
+      "model": "grok-4.5",
+      "baselineSha": "c738248ec35c5c48b5e79d0b91423067699a798b",
+      "tipSha": "2b7d56199e0e5c747b70f609b8217f947f9c6c7b",
+      "tipBranch": "runs/P2/arm-d",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "8 files changed, 495 insertions(+), 23 deletions(-)",
+        "filesChanged": 8,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 294454,
+          "cachedInput": 264320,
+          "uncachedInput": 30134,
+          "output": 10673,
+          "reasoningOutput": 0,
+          "sessions": 1
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 294454,
+            "cachedInput": 264320,
+            "uncachedInput": 30134,
+            "output": 10673,
+            "reasoningOutput": 0,
+            "sessions": 1
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P2",
+      "arm": "E",
+      "startedAt": "2026-10-26T12:11:25Z",
+      "finishedAt": "2026-10-26T12:18:44Z",
+      "wallSeconds": 439,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "cursor",
+      "workflowId": "wf-1793016685917-1",
+      "workflowStatus": "success",
+      "baselineSha": "c738248ec35c5c48b5e79d0b91423067699a798b",
+      "tipSha": "0bddc70d1e0b9103d969dffa6d1a7c11f21e0c54",
+      "tipBranch": "runs/P2/arm-e",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "6 files changed, 830 insertions(+), 18 deletions(-)",
+        "filesChanged": 6,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1227467,
+          "cachedInput": 1072256,
+          "uncachedInput": 155211,
+          "output": 31384,
+          "reasoningOutput": 0,
+          "sessions": 5
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 1227467,
+            "cachedInput": 1072256,
+            "uncachedInput": 155211,
+            "output": 31384,
+            "reasoningOutput": 0,
+            "sessions": 5
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P3",
+      "arm": "A",
+      "startedAt": "2026-10-26T12:04:40Z",
+      "finishedAt": "2026-10-26T12:06:21Z",
+      "wallSeconds": 101,
+      "agentExitCode": 0,
+      "tool": "codex exec",
+      "model": "gpt-reserve",
+      "baselineSha": "32a4e4be2871ec12fb461334ac10caca40dad33a",
+      "tipSha": "c2cadd0564aa0d8c0c577a5fb310f4f3cbed050d",
+      "tipBranch": "runs/P3/arm-a",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "4 files changed, 200 insertions(+), 25 deletions(-)",
+        "filesChanged": 4,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 537912,
+          "cachedInput": 513280,
+          "uncachedInput": 24632,
+          "output": 12268,
+          "reasoningOutput": 1993,
+          "sessions": 1
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 537912,
+            "cachedInput": 513280,
+            "uncachedInput": 24632,
+            "output": 12268,
+            "reasoningOutput": 1993,
+            "sessions": 1
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 1,
+          "endPercent": 1,
+          "sameWindow": true,
+          "deltaPercent": 0
+        }
+      }
+    },
+    {
+      "fixture": "P3",
+      "arm": "B",
+      "startedAt": "2026-10-26T12:06:25Z",
+      "finishedAt": "2026-10-26T12:11:39Z",
+      "wallSeconds": 314,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793016385830-1",
+      "workflowStatus": "success",
+      "baselineSha": "32a4e4be2871ec12fb461334ac10caca40dad33a",
+      "tipSha": "8d2ace094bbda219513d0c345d6fb6530adc8759",
+      "tipBranch": "runs/P3/arm-b",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "5 files changed, 382 insertions(+), 23 deletions(-)",
+        "filesChanged": 5,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1546635,
+          "cachedInput": 1393280,
+          "uncachedInput": 153355,
+          "output": 28470,
+          "reasoningOutput": 6682,
+          "sessions": 5
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 1546635,
+            "cachedInput": 1393280,
+            "uncachedInput": 153355,
+            "output": 28470,
+            "reasoningOutput": 6682,
+            "sessions": 5
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 1,
+          "endPercent": 2,
+          "sameWindow": true,
+          "deltaPercent": 1
+        }
+      }
+    },
+    {
+      "fixture": "P3",
+      "arm": "C",
+      "startedAt": "2026-10-26T12:11:43Z",
+      "finishedAt": "2026-10-26T12:16:29Z",
+      "wallSeconds": 286,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793016703280-1",
+      "workflowStatus": "success",
+      "baselineSha": "32a4e4be2871ec12fb461334ac10caca40dad33a",
+      "tipSha": "6347791487dad68d34c8f1dd51998f6babe2f09e",
+      "tipBranch": "runs/P3/arm-c",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "6 files changed, 367 insertions(+), 19 deletions(-)",
+        "filesChanged": 6,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1192975,
+          "cachedInput": 1045632,
+          "uncachedInput": 147343,
+          "output": 17839,
+          "reasoningOutput": 3785,
+          "sessions": 5
+        },
+        "byModel": {
+          "gpt-6-luna": {
+            "totalInput": 615868,
+            "cachedInput": 520704,
+            "uncachedInput": 95164,
+            "output": 6122,
+            "reasoningOutput": 598,
+            "sessions": 3
+          },
+          "gpt-reserve": {
+            "totalInput": 577107,
+            "cachedInput": 524928,
+            "uncachedInput": 52179,
+            "output": 11717,
+            "reasoningOutput": 3187,
+            "sessions": 2
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 2,
+          "endPercent": 3,
+          "sameWindow": true,
+          "deltaPercent": 1
+        }
+      }
+    },
+    {
+      "fixture": "P3",
+      "arm": "D",
+      "startedAt": "2026-10-26T12:18:50Z",
+      "finishedAt": "2026-10-26T12:21:47Z",
+      "wallSeconds": 177,
+      "agentExitCode": 0,
+      "tool": "cursor agent",
+      "model": "grok-4.5",
+      "baselineSha": "32a4e4be2871ec12fb461334ac10caca40dad33a",
+      "tipSha": "fe719610ed0f623dd4139b9541075f8ec0edcda0",
+      "tipBranch": "runs/P3/arm-d",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "6 files changed, 550 insertions(+), 40 deletions(-)",
+        "filesChanged": 6,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 599394,
+          "cachedInput": 557440,
+          "uncachedInput": 41954,
+          "output": 18107,
+          "reasoningOutput": 0,
+          "sessions": 1
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 599394,
+            "cachedInput": 557440,
+            "uncachedInput": 41954,
+            "output": 18107,
+            "reasoningOutput": 0,
+            "sessions": 1
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P3",
+      "arm": "E",
+      "startedAt": "2026-10-26T12:21:51Z",
+      "finishedAt": "2026-10-26T12:29:06Z",
+      "wallSeconds": 435,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "cursor",
+      "workflowId": "wf-1793017311853-1",
+      "workflowStatus": "success",
+      "baselineSha": "32a4e4be2871ec12fb461334ac10caca40dad33a",
+      "tipSha": "cfdc095b6792be4cd3a2da46e32c344c1aa8a792",
+      "tipBranch": "runs/P3/arm-e",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "6 files changed, 896 insertions(+), 24 deletions(-)",
+        "filesChanged": 6,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1439744,
+          "cachedInput": 1238272,
+          "uncachedInput": 201472,
+          "output": 35762,
+          "reasoningOutput": 0,
+          "sessions": 5
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 1439744,
+            "cachedInput": 1238272,
+            "uncachedInput": 201472,
+            "output": 35762,
+            "reasoningOutput": 0,
+            "sessions": 5
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P4",
+      "arm": "A",
+      "startedAt": "2026-10-26T12:16:34Z",
+      "finishedAt": "2026-10-26T12:18:06Z",
+      "wallSeconds": 92,
+      "agentExitCode": 0,
+      "tool": "codex exec",
+      "model": "gpt-reserve",
+      "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+      "tipSha": "241eb486773b2f072abbc058ff146248ab040bdb",
+      "tipBranch": "runs/P4/arm-a",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "4 files changed, 236 insertions(+), 30 deletions(-)",
+        "filesChanged": 4,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 360344,
+          "cachedInput": 324992,
+          "uncachedInput": 35352,
+          "output": 11080,
+          "reasoningOutput": 1572,
+          "sessions": 1
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 360344,
+            "cachedInput": 324992,
+            "uncachedInput": 35352,
+            "output": 11080,
+            "reasoningOutput": 1572,
+            "sessions": 1
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 3,
+          "endPercent": 3,
+          "sameWindow": true,
+          "deltaPercent": 0
+        }
+      }
+    },
+    {
+      "fixture": "P4",
+      "arm": "B",
+      "startedAt": "2026-10-26T12:18:09Z",
+      "finishedAt": "2026-10-26T12:22:24Z",
+      "wallSeconds": 255,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793017089867-1",
+      "workflowStatus": "success",
+      "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+      "tipSha": "ff1707cb1cd923174af0b36983b7c81fd412c91e",
+      "tipBranch": "runs/P4/arm-b",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "7 files changed, 501 insertions(+), 27 deletions(-)",
+        "filesChanged": 7,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 931226,
+          "cachedInput": 824192,
+          "uncachedInput": 107034,
+          "output": 22311,
+          "reasoningOutput": 5065,
+          "sessions": 5
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 931226,
+            "cachedInput": 824192,
+            "uncachedInput": 107034,
+            "output": 22311,
+            "reasoningOutput": 5065,
+            "sessions": 5
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 3,
+          "endPercent": 3,
+          "sameWindow": true,
+          "deltaPercent": 0
+        }
+      }
+    },
+    {
+      "fixture": "P4",
+      "arm": "C",
+      "startedAt": "2026-10-26T12:22:28Z",
+      "finishedAt": "2026-10-26T12:26:44Z",
+      "wallSeconds": 256,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "codex",
+      "workflowId": "wf-1793017348473-1",
+      "workflowStatus": "success",
+      "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+      "tipSha": "22af4beea88836d00f3220cef02f38d0bd8060d4",
+      "tipBranch": "runs/P4/arm-c",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "7 files changed, 473 insertions(+), 23 deletions(-)",
+        "filesChanged": 7,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1039358,
+          "cachedInput": 923520,
+          "uncachedInput": 115838,
+          "output": 19807,
+          "reasoningOutput": 3074,
+          "sessions": 5
+        },
+        "byModel": {
+          "gpt-reserve": {
+            "totalInput": 570157,
+            "cachedInput": 508288,
+            "uncachedInput": 61869,
+            "output": 13790,
+            "reasoningOutput": 2548,
+            "sessions": 2
+          },
+          "gpt-6-luna": {
+            "totalInput": 469201,
+            "cachedInput": 415232,
+            "uncachedInput": 53969,
+            "output": 6017,
+            "reasoningOutput": 526,
+            "sessions": 3
+          }
+        },
+        "codexQuota": {
+          "windowMinutes": 300,
+          "startPercent": 3,
+          "endPercent": 4,
+          "sameWindow": true,
+          "deltaPercent": 1
+        }
+      }
+    },
+    {
+      "fixture": "P4",
+      "arm": "D",
+      "startedAt": "2026-10-26T12:29:11Z",
+      "finishedAt": "2026-10-26T12:31:49Z",
+      "wallSeconds": 158,
+      "agentExitCode": 0,
+      "tool": "cursor agent",
+      "model": "grok-4.5",
+      "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+      "tipSha": "1b27899a82a1ba183ed9953bd90995c13fbe3902",
+      "tipBranch": "runs/P4/arm-d",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "5 files changed, 741 insertions(+), 37 deletions(-)",
+        "filesChanged": 5,
+        "commits": 1
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 449757,
+          "cachedInput": 408192,
+          "uncachedInput": 41565,
+          "output": 16486,
+          "reasoningOutput": 0,
+          "sessions": 1
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 449757,
+            "cachedInput": 408192,
+            "uncachedInput": 41565,
+            "output": 16486,
+            "reasoningOutput": 0,
+            "sessions": 1
+          }
+        }
+      }
+    },
+    {
+      "fixture": "P4",
+      "arm": "E",
+      "startedAt": "2026-10-26T12:31:53Z",
+      "finishedAt": "2026-10-26T12:39:43Z",
+      "wallSeconds": 470,
+      "agentExitCode": 0,
+      "tool": "invoker-cli run --standalone",
+      "agent": "cursor",
+      "workflowId": "wf-1793017913379-1",
+      "workflowStatus": "success",
+      "baselineSha": "103bd2de7963836622116f1cfd0adff5bae6b470",
+      "tipSha": "0ea9b7d931fb49fb9e287cf11797713316007a2c",
+      "tipBranch": "runs/P4/arm-e",
+      "harnessCommittedLeftovers": false,
+      "noChangesMade": false,
+      "tier1": "pass",
+      "tier2": "pass",
+      "accepted": true,
+      "diff": {
+        "shortstat": "10 files changed, 1299 insertions(+), 32 deletions(-)",
+        "filesChanged": 10,
+        "commits": 6
+      },
+      "contaminationFindings": 0,
+      "tokens": {
+        "totals": {
+          "totalInput": 1449804,
+          "cachedInput": 1283840,
+          "uncachedInput": 165964,
+          "output": 40787,
+          "reasoningOutput": 0,
+          "sessions": 5
+        },
+        "byModel": {
+          "grok-4.5": {
+            "totalInput": 1449804,
+            "cachedInput": 1283840,
+            "uncachedInput": 165964,
+            "output": 40787,
+            "reasoningOutput": 0,
+            "sessions": 5
+          }
+        }
+      }
+    }
+  ]
+}

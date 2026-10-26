@@ -1,0 +1,9 @@
+Reading additional input from stdin...
+2026-10-26T12:41:11.776267Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`/bin/zsh -lc 'rm -f apps/web/tsconfig.tsbuildinfo && git status --short && git rev-parse --short HEAD'` rejected: rm -f style commands are not permitted. Use a safer approach\")" }
+[assistant] I’ll read `SPEC.md` first, then inspect the current exports and the upstream-added public APIs. I’ll make only the export changes, run both required commands, and commit the result.
+[assistant] The upstream service is `LedgerService` in `packages/api/src/ledger-service.ts`; no new service or type was added under `packages/core`. Since this step specifically calls for the core barrel to expose upstream public APIs, I’m adding only the service and factory re-export there.
+[assistant] Both required commands currently stop because this checkout has no installed dependencies (`vitest` and `tsc` are missing). I’ll install from the existing lockfile, rerun them, then commit the one-line export change.
+[assistant] Added `LedgerService` and `createLedgerService` to the core exports in [index.ts](/Users/adamreaksmey/Desktop/Personal/invoker-orchestration-benchmark/work/invoker/P1-C/worktrees/c98ef4e0840d/experiment-wf-1793018162575-1-p1-core-exports-g0.t0.a-aaec86a03-04334e20/packages/core/src/index.ts).
+
+`npm test` and `npm run build` both passed. Committed as `a7f9f19` (`Export persisted ledger service from core`).[worktree] Process exited: actionId=wf-1793018162575-1/p1-core-exports exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793018162575-1/p1-core-exports/g0.t0.a-aaec86a03-04334e20 from the local RepoPool mirror.

@@ -1,0 +1,7 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` first, then inspect the CLI, current tests, and README to implement this step and verify it with the required test and build commands before committing.
+[assistant] The parser now rejects unknown flags and missing option values before processing input, and the CLI tests cover those cases plus missing and unreadable input and unsupported formats. I’ve updated the README with the supported options and exit behavior; I’m running the required checks now.
+[assistant] Implemented strict CLI argument handling and updated the usage documentation. Added tests for unknown flags, missing option values, missing input, unreadable files, and invalid formats.
+
+`npm test` and `npm run build` both passed. Committed as `175a037` (`Harden CLI argument errors and document usage`).[worktree] Process exited: actionId=wf-1793017348473-1/p4-cli-errors-and-docs exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017348473-1/p4-cli-errors-and-docs/g0.t0.a-ad653cc88-64d5392e from the local RepoPool mirror.

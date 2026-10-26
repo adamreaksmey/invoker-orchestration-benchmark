@@ -1,0 +1,31 @@
+
+added 65 packages in 392ms
+
+> markdown-wiki@0.1.0 test
+> node --test test/
+
+✔ lists, reads, creates, updates, and deletes pages (51.592459ms)
+✔ parses front matter tags, removes it from body, and prefers its title (10.788417ms)
+✔ parses comma-separated tags and falls back to heading then slug (7.11175ms)
+✔ front matter does not override title precedence when title is blank (5.029458ms)
+✔ search finds pages containing the query (3.954291ms)
+✔ synchronizes the index across app restarts and supports tags (8.246792ms)
+✔ create, update, and delete keep search and tags indexes current before responding (13.504792ms)
+✔ tag endpoints count and sort tags, and return pages case-insensitively by slug (7.032541ms)
+✔ search ranks title matches, highlights body matches, and validates q (7.156ms)
+✔ search uses case-insensitive AND terms, ignores punctuation, and caps results (6.985958ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 206.014791
+
+> markdown-wiki@0.1.0 build
+> node scripts/build.mjs
+
+build: syntax-checked 6 file(s)
+[worktree] Process exited: actionId=wf-1793016703280-1/p3-verify exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793016703280-1/p3-verify/g0.t0.a-a8d4ab6ca-e656f448 from the local RepoPool mirror.

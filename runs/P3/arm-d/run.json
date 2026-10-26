@@ -1,0 +1,10 @@
+{
+  "fixture": "P3",
+  "arm": "D",
+  "startedAt": "2026-10-26T12:18:50Z",
+  "finishedAt": "2026-10-26T12:21:47Z",
+  "wallSeconds": 177,
+  "agentExitCode": 0,
+  "tool": "cursor agent",
+  "model": "grok-4.5"
+}

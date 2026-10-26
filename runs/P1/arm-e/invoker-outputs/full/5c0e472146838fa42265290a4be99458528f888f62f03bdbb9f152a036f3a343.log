@@ -1,0 +1,12 @@
+I'll read SPEC.md and inspect the repo so we can implement only this SQLite persistence step locally.Next I'll inspect migrations, the ledger domain, and the auth-store pattern so the persistence layer matches existing conventions.Implementing `LedgerStore` (AuthStore-style) with temp-file unit tests, mirroring ledger domain rules and per-user scoping.Constraint errors use a different message format — updating detection to match.Tests and build passed. Committing the persistence-layer changes.Implemented SQLite-backed `LedgerStore` and committed it.
+
+**Added**
+- `packages/api/src/ledger-store.ts` — user-scoped account/transaction persistence (integer cents), same domain rules as in-memory `Ledger`
+- `packages/api/src/ledger-store.test.ts` — unit tests on temporary DB files (persist/reload, per-user isolation, validation)
+
+**Left untouched:** `packages/core/src/index.ts`, API routes, in-memory map
+
+**Verified:** `npm test` and `npm run build` both pass  
+**Commit:** `be95c343dd6642896f5414cd2838262bab876bd7`
+[worktree] Process exited: actionId=wf-1793015877762-1/p1-persistence-layer exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793015877762-1/p1-persistence-layer/g0.t0.a-a54bd29e2-a75e962f from the local RepoPool mirror.

@@ -1,0 +1,13 @@
+Reading additional input from stdin...
+[assistant] I’m reading `SPEC.md` first, then I’ll trace the API persistence path, add the restart-preservation integration test, fix any issue it reveals, run both required checks, and commit the result.
+[assistant] The current branch already has SQLite-backed ledger storage and a restart test, but that test reopens the database manually. I’m checking the exact `DATABASE_PATH`/`createApp()` lifecycle now; the required change appears to be tightening this to the public restart contract and using the test to detect any handle or migration issue.
+[assistant] The first test run is currently blocked because this checkout has no installed workspace dependencies (`vitest: command not found`), not by a code failure. I’ll make the restart test exercise two separate `createApp()` calls using `DATABASE_PATH`, including account, transaction, and balance assertions, then install dependencies if needed for verification.
+[assistant] The new restart test passes: it writes through the first API instance, opens a second instance via the same `DATABASE_PATH`, and observes identical accounts, transactions, and balance. No persistence bug surfaced in the existing SQLite implementation, so the required code change is the integration coverage itself. I’m running the full mandated test and build commands now.
+[assistant] Implemented and committed as `f326628`.
+
+- Added integration coverage for `DATABASE_PATH` restart persistence.
+- Verified accounts, transactions, and balances remain unchanged across new `createApp()` instances.
+- No persistence bug was exposed.
+- `npm test` passed.
+- `npm run build` passed.[worktree] Process exited: actionId=wf-1793017714057-1/p1-restart-preservation exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017714057-1/p1-restart-preservation/g0.t0.a-a55c2be7f-abdb5890 from the local RepoPool mirror.

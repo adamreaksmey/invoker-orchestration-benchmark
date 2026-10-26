@@ -1,0 +1,10 @@
+I'll read SPEC.md and explore the codebase to implement front-matter parsing for this step.Implementing only front-matter parsing. Reviewing the current source and tests.Implementing front-matter parsing and updating tests.Tests and build passed. Committing changes.Front-matter parsing is in place and committed (`649f4c8`).
+
+**What changed**
+- `src/pages.js`: parse `---` blocks; title precedence (front-matter → `# ` heading → slug); tags trimmed/lowercased/deduped/sorted (`[a, b]` or `a, b`); returned `body` omits the block
+- `src/app.js`: `GET /pages` includes `tags`
+- Tests updated/added for parsing, list/detail responses, and PUT
+
+`npm test` (7 passing) and `npm run build` both succeeded.
+[worktree] Process exited: actionId=wf-1793017311853-1/p3-front-matter exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017311853-1/p3-front-matter/g0.t0.a-a2ded8ec4-08bc5d80 from the local RepoPool mirror.

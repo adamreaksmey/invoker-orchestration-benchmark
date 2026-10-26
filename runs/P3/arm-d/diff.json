@@ -1,0 +1,16 @@
+{
+  "shortstat": "6 files changed, 550 insertions(+), 40 deletions(-)",
+  "filesChanged": 6,
+  "commits": 1,
+  "testFilesTouched": [
+    "M\ttest/app.test.js"
+  ],
+  "nameStatus": [
+    "M\tsrc/app.js",
+    "A\tsrc/front-matter.js",
+    "M\tsrc/pages.js",
+    "A\tsrc/wiki-index.js",
+    "M\ttest/app.test.js",
+    "M\ttest/helpers.js"
+  ]
+}

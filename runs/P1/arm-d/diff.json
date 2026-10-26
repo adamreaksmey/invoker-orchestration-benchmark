@@ -1,0 +1,22 @@
+{
+  "shortstat": "9 files changed, 580 insertions(+), 38 deletions(-)",
+  "filesChanged": 9,
+  "commits": 2,
+  "testFilesTouched": [
+    "M\te2e/smoke.spec.ts",
+    "A\tpackages/api/src/db.test.ts",
+    "A\tpackages/api/src/ledger-service.test.ts",
+    "A\tpackages/api/src/persistence.test.ts"
+  ],
+  "nameStatus": [
+    "M\tapps/web/src/App.tsx",
+    "A\tapps/web/tsconfig.tsbuildinfo",
+    "M\te2e/smoke.spec.ts",
+    "A\tpackages/api/src/db.test.ts",
+    "M\tpackages/api/src/db.ts",
+    "M\tpackages/api/src/index.ts",
+    "A\tpackages/api/src/ledger-service.test.ts",
+    "A\tpackages/api/src/ledger-service.ts",
+    "A\tpackages/api/src/persistence.test.ts"
+  ]
+}

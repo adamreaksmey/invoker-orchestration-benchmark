@@ -1,0 +1,12 @@
+{
+  "fixture": "P4",
+  "arm": "B",
+  "startedAt": "2026-10-26T12:18:09Z",
+  "finishedAt": "2026-10-26T12:22:24Z",
+  "wallSeconds": 255,
+  "agentExitCode": 0,
+  "tool": "invoker-cli run --standalone",
+  "agent": "codex",
+  "workflowId": "wf-1793017089867-1",
+  "workflowStatus": "success"
+}

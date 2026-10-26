@@ -1,0 +1,18 @@
+Reading additional input from stdin...
+[assistant] I’ll read `SPEC.md` first, then inspect the CLI and existing tests, implement only the output-format step, run the required test/build commands, and commit the changes.
+[assistant] The existing CLI already has parsing, schema validation, and aggregation in place. I’m adding format selection and file-output handling at the CLI/report boundary, including strict option errors and RFC-style CSV serialization, while preserving the current table behavior.
+[assistant] The new tests now pass, including pretty JSON numbers, CSV quoting/LF endings, `--out` stdout suppression, and invalid-format handling. I’m running the required build check next, then I’ll review the diff and commit.
+[assistant] Implemented and committed output formats.
+
+- Added `--format table|csv|json` (default `table`)
+- Added pretty JSON and RFC-style CSV output
+- Added `--out <path>` with empty stdout
+- Added validation for invalid/unknown options
+- Added tests
+
+Verified:
+
+- `npm test` — 22 passing
+- `npm run build` — passed
+- Commit: `4f5f2ed`[worktree] Process exited: actionId=wf-1793017089867-1/p4-output-formats exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017089867-1/p4-output-formats/g0.t0.a-a2d34f79d-9f73d61a from the local RepoPool mirror.

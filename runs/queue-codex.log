@@ -1,0 +1,112 @@
+2026-10-26T11:54:35Z START P2 A
+[verify] install: PASS (403 ms)
+[verify] test: PASS (334 ms)
+[verify] build: PASS (297 ms)
+[verify] acceptance: PASS (289 ms)
+{"fixture":"P2","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P2","arm":"A","tip":"c9c6982dd16ae7eb200d83faee089b0a11fac803","accepted":true,"wallSeconds":78}
+2026-10-26T11:55:57Z END P2 A exit=0
+2026-10-26T11:55:57Z START P2 B
+[verify] install: PASS (351 ms)
+[verify] test: PASS (375 ms)
+[verify] build: PASS (282 ms)
+[verify] acceptance: PASS (244 ms)
+{"fixture":"P2","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 1 delegation signature(s) found
+{"fixture":"P2","arm":"B","tip":"a0fc21116a827ce4f8dedb268e2960c9a99980cc","accepted":true,"wallSeconds":260}
+2026-10-26T12:00:22Z END P2 B exit=0
+2026-10-26T12:00:22Z START P2 C
+[verify] install: PASS (315 ms)
+[verify] test: PASS (345 ms)
+[verify] build: PASS (294 ms)
+[verify] acceptance: PASS (290 ms)
+{"fixture":"P2","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 1 delegation signature(s) found
+{"fixture":"P2","arm":"C","tip":"183d3645eafa241d4c53d22037ade53f8a8d5081","accepted":true,"wallSeconds":253}
+2026-10-26T12:04:39Z END P2 C exit=0
+2026-10-26T12:04:39Z START P3 A
+[verify] install: PASS (427 ms)
+[verify] test: PASS (323 ms)
+[verify] build: PASS (333 ms)
+[verify] acceptance: PASS (257 ms)
+{"fixture":"P3","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P3","arm":"A","tip":"c2cadd0564aa0d8c0c577a5fb310f4f3cbed050d","accepted":true,"wallSeconds":101}
+2026-10-26T12:06:25Z END P3 A exit=0
+2026-10-26T12:06:25Z START P3 B
+[verify] install: PASS (370 ms)
+[verify] test: PASS (381 ms)
+[verify] build: PASS (337 ms)
+[verify] acceptance: PASS (262 ms)
+{"fixture":"P3","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 1 delegation signature(s) found
+{"fixture":"P3","arm":"B","tip":"8d2ace094bbda219513d0c345d6fb6530adc8759","accepted":true,"wallSeconds":314}
+2026-10-26T12:11:43Z END P3 B exit=0
+2026-10-26T12:11:43Z START P3 C
+[verify] install: PASS (330 ms)
+[verify] test: PASS (386 ms)
+[verify] build: PASS (347 ms)
+[verify] acceptance: PASS (276 ms)
+{"fixture":"P3","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P3","arm":"C","tip":"6347791487dad68d34c8f1dd51998f6babe2f09e","accepted":true,"wallSeconds":286}
+2026-10-26T12:16:33Z END P3 C exit=0
+2026-10-26T12:16:33Z START P4 A
+[verify] install: PASS (303 ms)
+[verify] test: PASS (201 ms)
+[verify] build: PASS (288 ms)
+[verify] acceptance: PASS (589 ms)
+{"fixture":"P4","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P4","arm":"A","tip":"241eb486773b2f072abbc058ff146248ab040bdb","accepted":true,"wallSeconds":92}
+2026-10-26T12:18:09Z END P4 A exit=0
+2026-10-26T12:18:09Z START P4 B
+[verify] install: PASS (221 ms)
+[verify] test: PASS (226 ms)
+[verify] build: PASS (373 ms)
+[verify] acceptance: PASS (676 ms)
+{"fixture":"P4","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P4","arm":"B","tip":"ff1707cb1cd923174af0b36983b7c81fd412c91e","accepted":true,"wallSeconds":255}
+2026-10-26T12:22:28Z END P4 B exit=0
+2026-10-26T12:22:28Z START P4 C
+[verify] install: PASS (233 ms)
+[verify] test: PASS (228 ms)
+[verify] build: PASS (347 ms)
+[verify] acceptance: PASS (775 ms)
+{"fixture":"P4","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P4","arm":"C","tip":"22af4beea88836d00f3220cef02f38d0bd8060d4","accepted":true,"wallSeconds":256}
+2026-10-26T12:26:48Z END P4 C exit=0
+2026-10-26T12:26:48Z START P1 A
+[verify] install: PASS (1225 ms)
+[verify] test: PASS (2184 ms)
+[verify] build: PASS (1428 ms)
+[verify] acceptance-api: PASS (803 ms)
+[verify] acceptance-e2e: FAIL (7271 ms)
+{"fixture":"P1","tier1":"pass","tier2":"fail","accepted":false}
+[audit] 0 delegation signature(s) found
+{"fixture":"P1","arm":"A","tip":"94b020df115650d9485e0f6c8e30d70a22a4544f","accepted":false,"wallSeconds":88}
+2026-10-26T12:28:33Z END P1 A exit=0
+2026-10-26T12:28:33Z START P1 B
+[verify] install: PASS (1748 ms)
+[verify] test: PASS (3081 ms)
+[verify] build: PASS (1692 ms)
+[verify] acceptance-api: PASS (1202 ms)
+[verify] acceptance-e2e: PASS (2978 ms)
+{"fixture":"P1","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P1","arm":"B","tip":"6401ce139be0f9b1edbf0bd72cb4163ca6d1c1ad","accepted":true,"wallSeconds":435}
+2026-10-26T12:36:02Z END P1 B exit=0
+2026-10-26T12:36:02Z START P1 C
+[verify] install: PASS (1307 ms)
+[verify] test: PASS (2173 ms)
+[verify] build: PASS (1406 ms)
+[verify] acceptance-api: PASS (834 ms)
+[verify] acceptance-e2e: PASS (2507 ms)
+{"fixture":"P1","tier1":"pass","tier2":"pass","accepted":true}
+[audit] 0 delegation signature(s) found
+{"fixture":"P1","arm":"C","tip":"49d371f2d804ad0f22dda613ce4487f23667d105","accepted":true,"wallSeconds":462}
+2026-10-26T12:43:55Z END P1 C exit=0
+2026-10-26T12:43:55Z QUEUE_DONE codex

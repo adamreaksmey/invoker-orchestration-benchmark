@@ -1,0 +1,9 @@
+I'll implement GET `/search` from SPEC.md locally—starting by reading the spec and the current search/index code.Checking helpers and whether Node's sqlite FTS5 APIs need any special handling:Implementing FTS5 search and wiring the `/search` route.Tests and build passed. Committing the changes.`GET /search` now runs on the FTS5 index as specified.
+
+- **`wiki-index.js`**: quoted-term AND match, title-weighted BM25 (`score` higher = better), `**…**` body snippets, max 20 hits; punctuation/quotes never 500
+- **`app.js`**: blank/missing `q` → `400`
+- **Tests**: case-insensitive match, ranking, AND, cap, punctuation, blank `q`
+
+`npm test` and `npm run build` both passed. Committed as `d98d41d`.
+[worktree] Process exited: actionId=wf-1793017311853-1/p3-search exitCode=0
+[worktree] Skipping remote branch publish; downstream worktree tasks resolve experiment/wf-1793017311853-1/p3-search/g0.t0.a-ac5423dd7-ef5a0889 from the local RepoPool mirror.

@@ -97,7 +97,9 @@ function summarizeRun(runDirectory) {
   const sessions = collectSessions(runDirectory);
   const tokens = { totals: sumSessions(sessions.all), byModel: sumByModel(sessions.all), codexQuota: quotaMovement(sessions.codex), sessions: sessions.all };
   writeFileSync(join(runDirectory, "tokens.json"), `${JSON.stringify(tokens, null, 2)}\n`);
-  return { ...meta, tokens: { totals: tokens.totals, byModel: tokens.byModel, codexQuota: tokens.codexQuota } };
+  const auditPath = join(runDirectory, "contamination.json");
+  const contaminationFindings = existsSync(auditPath) ? JSON.parse(readFileSync(auditPath, "utf8")).findings.length : meta.contaminationFindings;
+  return { ...meta, contaminationFindings, tokens: { totals: tokens.totals, byModel: tokens.byModel, codexQuota: tokens.codexQuota } };
 }
 
 const runDirectories = readdirSync(RUNS_ROOT)

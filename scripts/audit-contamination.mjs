@@ -11,6 +11,10 @@ const DELEGATION_SIGNATURES = [
   /packages\/cli\/dist\/index\.js\s+run\b/,
 ];
 const SCANNED_EXTENSIONS = /\.(jsonl?|txt|log|stderr|out)$/;
+const HARNESS_WRITTEN_FILES = new Set([
+  "contamination.json", "run.json", "meta.json", "verify.json", "diff.json", "tokens.json", "tasks.json",
+  "invoker-run.json", "invoker-run.stderr", "rerun-reason.txt", "previous-attempt.txt",
+]);
 const MAX_EXCERPT_CHARACTERS = 240;
 
 const { values } = parseArgs({ options: { "run-dir": { type: "string" } } });
@@ -24,7 +28,7 @@ function listFiles(directory) {
   return readdirSync(directory).flatMap((entry) => {
     const path = join(directory, entry);
     if (statSync(path).isDirectory()) return listFiles(path);
-    return SCANNED_EXTENSIONS.test(entry) && entry !== "contamination.json" ? [path] : [];
+    return SCANNED_EXTENSIONS.test(entry) && !HARNESS_WRITTEN_FILES.has(entry) ? [path] : [];
   });
 }
 

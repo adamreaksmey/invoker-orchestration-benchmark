@@ -1,0 +1,9 @@
+{
+  "fixture": "wiki",
+  "files": [
+    { "from": "wiki.acceptance.test.js", "to": ".acceptance/wiki.acceptance.test.js" }
+  ],
+  "commands": [
+    { "name": "acceptance", "command": "node --test .acceptance/" }
+  ]
+}

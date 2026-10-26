@@ -1,0 +1,45 @@
+{
+  "fixture": "P2",
+  "source": {
+    "dir": "/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/tmp.spgEihPbso"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T11:53:14.207Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 471,
+      "logTail": "\nadded 65 packages in 243ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 388,
+      "logTail": "\n> link-shortener@0.1.0 test\n> node --test test/\n\n✔ creates a link and redirects to it (52.486709ms)\n✔ returns link metadata and 404 for unknown codes (25.975959ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 202.707458\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 477,
+      "logTail": "\n> link-shortener@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 7 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 269,
+      "logTail": "✔ links survive a restart on the same database file (47.476917ms)\n✔ migrations are recorded in schema_migrations (2.03775ms)\n✔ rejects invalid URLs and custom codes, and duplicate codes (12.152417ms)\n✔ records clicks and reports stats by UTC day (7.866125ms)\n✔ clicks survive a restart (6.5525ms)\n✔ rate limits link creation per window without limiting redirects (9.019292ms)\nℹ tests 6\nℹ suites 0\nℹ pass 6\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 191.919166\n"
+    }
+  ]
+}

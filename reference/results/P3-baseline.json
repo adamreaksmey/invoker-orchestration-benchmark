@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "commit": "32a4e4be2871ec12fb461334ac10caca40dad33a"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "fail",
+  "accepted": false,
+  "verifiedAt": "2026-10-26T11:53:15.243Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 257,
+      "logTail": "\nadded 65 packages in 172ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 242,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (33.883333ms)\n✔ search finds pages containing the query (5.933625ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 112.961167\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 241,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 5 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 1,
+      "passed": false,
+      "durationMs": 173,
+      "logTail": "tance.test.js:82:1\n✖ index uses FTS5 and a schema version table (4.365417ms)\n  AssertionError [ERR_ASSERTION]: expected an FTS5 virtual table\n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P3-sDEKnh/.acceptance/wiki.acceptance.test.js:89:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: false,\n    expected: true,\n    operator: '==',\n    diff: 'simple'\n  }\n\ntest at .acceptance/wiki.acceptance.test.js:123:1\n✖ search is case-insensitive, ANDs terms, and weights titles (2.097875ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n  + actual - expected\n  \n  + []\n  - [\n  -   'both'\n  - ]\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P3-sDEKnh/.acceptance/wiki.acceptance.test.js:132:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: [],\n    expected: [ 'both' ],\n    operator: 'deepStrictEqual',\n    diff: 'simple'\n  }\n\ntest at .acceptance/wiki.acceptance.test.js:150:1\n✖ search handles punctuation safely and validates the query (4.852916ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  200 !== 400\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P3-sDEKnh/.acceptance/wiki.acceptance.test.js:161:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 200,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at .acceptance/wiki.acceptance.test.js:168:1\n✖ search returns at most 20 results (3.388459ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  25 !== 20\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P3-sDEKnh/.acceptance/wiki.acceptance.test.js:173:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 25,\n    expected: 20,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at .acceptance/wiki.acceptance.test.js:195:1\n✖ tags endpoints count and list pages (2.217875ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n  + actual - expected\n  \n  + undefined\n  - [\n  -   {\n  -     count: 3,\n  -     tag: 'ops'\n  -   },\n  -   {\n  -     count: 2,\n  -     tag: 'docs'\n  -   },\n  -   {\n  -     count: 1,\n  -     tag: 'api'\n  -   }\n  - ]\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P3-sDEKnh/.acceptance/wiki.acceptance.test.js:204:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: undefined,\n    expected: [ { tag: 'ops', count: 3 }, { tag: 'docs', count: 2 }, { tag: 'api', count: 1 } ],\n    operator: 'deepStrictEqual',\n    diff: 'simple'\n  }\n"
+    }
+  ]
+}

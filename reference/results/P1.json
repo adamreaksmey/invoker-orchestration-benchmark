@@ -1,0 +1,53 @@
+{
+  "fixture": "P1",
+  "source": {
+    "dir": "/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/tmp.kx4E39e6AC"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T11:53:11.373Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1111,
+      "logTail": "\nadded 194 packages in 1s\nnpm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)\nnpm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 2151,
+      "logTail": "\n> personal-ledger@0.1.0 test\n> npm run test --workspaces --if-present\n\n\n> @personal-ledger/api@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-kh2nRp/packages/api\n\n ✓ src/ledger-service.test.ts (2 tests) 3ms\n ✓ src/auth-store.test.ts (3 tests) 132ms\n ✓ src/auth-routes.test.ts (4 tests) 246ms\n\n Test Files  3 passed (3)\n      Tests  9 passed (9)\n   Start at  18:53:05\n   Duration  498ms (transform 53ms, setup 0ms, collect 118ms, tests 382ms, environment 0ms, prepare 116ms)\n\n\n> @personal-ledger/core@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-kh2nRp/packages/core\n\n ✓ src/categorization.test.ts (11 tests) 2ms\n ✓ src/ledger.test.ts (5 tests) 2ms\n ✓ src/reports.test.ts (3 tests) 8ms\n ✓ src/auth.test.ts (4 tests) 110ms\n\n Test Files  4 passed (4)\n      Tests  23 passed (23)\n   Start at  18:53:06\n   Duration  301ms (transform 64ms, setup 0ms, collect 91ms, tests 122ms, environment 0ms, prepare 167ms)\n\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1487,
+      "logTail": "\n> personal-ledger@0.1.0 build\n> npm run build --workspaces --if-present\n\n\n> @personal-ledger/web@0.1.0 build\n> tsc -b && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 30 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.45 kB │ gzip:  0.29 kB\ndist/assets/index-C9L4ThPf.css    7.86 kB │ gzip:  2.41 kB\ndist/assets/index-Bf7-0nQ_.js   232.96 kB │ gzip: 72.49 kB\n✓ built in 343ms\n"
+    },
+    {
+      "name": "acceptance-api",
+      "command": "cd packages/api && npx vitest run src/ledger-w1.acceptance.test.ts",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 878,
+      "logTail": "\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-kh2nRp/packages/api\n\n ✓ src/ledger-w1.acceptance.test.ts (3 tests) 199ms\n\n Test Files  1 passed (1)\n      Tests  3 passed (3)\n   Start at  18:53:08\n   Duration  476ms (transform 44ms, setup 0ms, collect 89ms, tests 199ms, environment 0ms, prepare 34ms)\n\n"
+    },
+    {
+      "name": "acceptance-e2e",
+      "command": "CI=1 DATABASE_PATH=\"$(mktemp -d)/ledger.sqlite\" npx playwright test e2e/ledger-w1.acceptance.spec.ts --reporter=line",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 2487,
+      "logTail": "\nRunning 1 test using 1 worker\n\n\n\n[1/1] e2e/ledger-w1.acceptance.spec.ts:5:5 › hidden acceptance: ledger flow survives reload and sign-in\n  1 passed (1.8s)\n(node:56066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    }
+  ]
+}

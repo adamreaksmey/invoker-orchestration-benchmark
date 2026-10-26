@@ -1,0 +1,16 @@
+{
+  "name": "invoker-orchestration-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Replayable benchmark: Invoker DAG orchestration vs continuous Codex/Cursor sessions across four fixture projects",
+  "scripts": {
+    "calibrate": "bash scripts/calibrate.sh",
+    "plans": "node scripts/gen-plans.mjs",
+    "rollup": "node scripts/rollup-tokens.mjs",
+    "docx": "node scripts/build-docx.mjs"
+  },
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "fixture": "P4",
+  "source": {
+    "dir": "/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/tmp.xrLdjnuYQw"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T11:53:19.829Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 194,
+      "logTail": "\nup to date in 110ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 175,
+      "logTail": "\n> csvreport@0.1.0 test\n> node --test test/\n\n✔ prints rows as a table (0.797625ms)\n✔ groups and sums a column (0.302833ms)\n✔ prints usage without an input file (0.061292ms)\nℹ tests 3\nℹ suites 0\nℹ pass 3\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 38.537083\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 283,
+      "logTail": "\n> csvreport@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 7 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 518,
+      "logTail": "✔ parses RFC 4180 quoting, embedded newlines, CRLF, and BOM (25.772208ms)\n✔ handles files without a trailing newline (25.41175ms)\n✔ schema converts numeric columns to JSON numbers (26.265375ms)\n✔ reports each invalid cell with its data row number and exits 2 (25.306625ms)\n✔ row numbers count records, not physical lines (24.752791ms)\n✔ missing schema column fails with a clear error (26.618375ms)\n✔ --skip-invalid drops bad rows and reports the count (26.86825ms)\n✔ groups, sums with 2-decimal rounding, counts, and sorts groups (23.942416ms)\n✔ count works without sum (25.854917ms)\n✔ json output is pretty-printed with a trailing newline (25.380458ms)\n✔ csv output quotes only when needed (23.934458ms)\n✔ table is the default format (23.987083ms)\n✔ --out writes to a file and leaves stdout empty (22.811042ms)\n✔ usage and I/O errors exit 1 (102.889417ms)\n✔ no runtime dependencies were added (0.116792ms)\nℹ tests 15\nℹ suites 0\nℹ pass 15\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 469.466708\n"
+    }
+  ]
+}

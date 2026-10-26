@@ -1,0 +1,164 @@
+{
+  "fixtures": {
+    "P1": {
+      "title": "Personal ledger: persist ledger data in SQLite",
+      "baseBranch": "baseline/p1-ledger",
+      "tasks": [
+        {
+          "id": "p1-migrations",
+          "difficulty": "mechanical",
+          "prompt": "Add a small versioned migration runner (schema version table) and SQL migrations for accounts and transactions keyed by user id. Auth tables must keep working on new and existing databases. Do not change HTTP routes yet. Add tests proving the migrations apply cleanly on an empty database.",
+          "dependencies": []
+        },
+        {
+          "id": "p1-persistence-layer",
+          "difficulty": "mechanical",
+          "prompt": "Implement SQLite-backed storage for ledger accounts and transactions, scoped per user id, using the tables from the migration task. Keep integer cents. Add unit tests using temporary database files. Do not edit packages/core/src/index.ts in this task.",
+          "dependencies": ["p1-migrations"]
+        },
+        {
+          "id": "p1-service-layer",
+          "difficulty": "hard",
+          "prompt": "Add a ledger service that wraps the persistence layer with the same domain rules as packages/core/src/ledger.ts (trimmed non-empty ids and names, unknown account errors, duplicate id errors, safe-integer non-zero amountCents). The service must not depend on Express. Unit test it.",
+          "dependencies": ["p1-persistence-layer"]
+        },
+        {
+          "id": "p1-api-integration",
+          "difficulty": "hard",
+          "prompt": "Replace the in-memory Map<string, Ledger> in packages/api/src/index.ts with the persisted ledger service per authenticated user. Preserve routes, JSON shapes, error statuses, and auth middleware exactly as listed in SPEC.md. Add supertest integration tests for accounts, transactions, and balance.",
+          "dependencies": ["p1-service-layer"]
+        },
+        {
+          "id": "p1-restart-preservation",
+          "difficulty": "hard",
+          "prompt": "Add an integration test that writes accounts and transactions through the API, then creates a new createApp() instance on the same DATABASE_PATH and asserts accounts, transactions, and balances are unchanged. Fix any persistence bug the test exposes.",
+          "dependencies": ["p1-api-integration"]
+        },
+        {
+          "id": "p1-core-exports",
+          "difficulty": "mechanical",
+          "prompt": "Update packages/core/src/index.ts exports only for new public types or services added by earlier tasks. Do not refactor unrelated modules.",
+          "dependencies": ["p1-service-layer", "p1-api-integration"]
+        },
+        {
+          "id": "p1-web-smoke",
+          "difficulty": "hard",
+          "prompt": "Make the web app work end to end against the persisted API: register, add an account, record a transaction, see the balance, reload, sign out, sign back in, and still see the balance. Fix any frontend bug that prevents this flow. Enable the ledger smoke test in e2e/smoke.spec.ts if it is still marked fixme. Do not add features.",
+          "dependencies": ["p1-api-integration"]
+        }
+      ],
+      "verifyDependencies": ["p1-restart-preservation", "p1-core-exports", "p1-web-smoke"]
+    },
+    "P2": {
+      "title": "Link shortener: persistence, click analytics, rate limiting",
+      "baseBranch": "baseline/p2-shortener",
+      "tasks": [
+        {
+          "id": "p2-persistence",
+          "difficulty": "mechanical",
+          "prompt": "Replace the in-memory link Map with SQLite storage (node:sqlite) behind a migration runner that records applied versions in a schema_migrations table. Add the createApp options databasePath and the app.locals.close() hook from SPEC.md. Add a test that a link created by one app instance is readable by a new instance on the same database file.",
+          "dependencies": []
+        },
+        {
+          "id": "p2-validation",
+          "difficulty": "mechanical",
+          "prompt": "Add URL validation (absolute http or https only) and custom code validation (^[A-Za-z0-9_-]{3,32}$) returning 400, and return 409 for a duplicate custom code, exactly as in SPEC.md. Add tests.",
+          "dependencies": ["p2-persistence"]
+        },
+        {
+          "id": "p2-click-analytics",
+          "difficulty": "hard",
+          "prompt": "Record every redirect as a click (timestamp from the injectable now option, Referer or null) in a new migration, and add GET /links/:code/stats with totalClicks, lastClickedAt, and clicksByDay (UTC dates) exactly as in SPEC.md. Stats requests must not count as clicks and clicks must persist across restarts. Add tests.",
+          "dependencies": ["p2-validation"]
+        },
+        {
+          "id": "p2-rate-limit",
+          "difficulty": "hard",
+          "prompt": "Add fixed-window per-IP rate limiting to POST /links only, configured by the rateLimitMax / rateLimitWindowMs options (env defaults RATE_LIMIT_MAX=20, RATE_LIMIT_WINDOW_MS=60000) and the now option. Over-limit requests get 429 with an error body and a whole-seconds Retry-After header >= 1 and must not create links. Redirects and stats are never limited. Add tests.",
+          "dependencies": ["p2-click-analytics"]
+        },
+        {
+          "id": "p2-docs-and-tests",
+          "difficulty": "mechanical",
+          "prompt": "Review the whole change against SPEC.md, fill any missing test coverage for persistence, validation, analytics, and rate limiting, and update README.md to document the new endpoints and configuration.",
+          "dependencies": ["p2-rate-limit"]
+        }
+      ],
+      "verifyDependencies": ["p2-docs-and-tests"]
+    },
+    "P3": {
+      "title": "Markdown wiki: front matter, full-text search, tags",
+      "baseBranch": "baseline/p3-wiki",
+      "tasks": [
+        {
+          "id": "p3-front-matter",
+          "difficulty": "mechanical",
+          "prompt": "Parse the front-matter block described in SPEC.md (title, tags in [a, b] or a, b form; tags trimmed, lowercased, de-duplicated, sorted). Title precedence: front-matter title, then first '# ' heading, then slug. Page responses include tags and body excludes the front matter; GET /pages includes tags. Update existing tests and add new ones.",
+          "dependencies": []
+        },
+        {
+          "id": "p3-search-index",
+          "difficulty": "hard",
+          "prompt": "Add a SQLite index (node:sqlite) with a migration runner and schema version table, an FTS5 table over title and body, and tag storage. Use the createApp options indexPath (default WIKI_INDEX_PATH or wiki-index.sqlite) and app.locals.close() from SPEC.md. Files are the source of truth: synchronize the index with the pages directory on startup (added, changed, removed files) and update it in PUT and DELETE before responding. Add tests.",
+          "dependencies": ["p3-front-matter"]
+        },
+        {
+          "id": "p3-search",
+          "difficulty": "hard",
+          "prompt": "Reimplement GET /search on the FTS5 index exactly as in SPEC.md: case-insensitive, AND of all terms, at most 20 results, title matches weighted above body matches, numeric score where higher is better, snippet with matched terms wrapped in **, user punctuation and quotes treated as plain text and never causing a 500, and 400 for a missing or blank q. Add tests including ranking and punctuation.",
+          "dependencies": ["p3-search-index"]
+        },
+        {
+          "id": "p3-tags-api",
+          "difficulty": "mechanical",
+          "prompt": "Add GET /tags (tag and count, sorted by count desc then tag asc) and GET /tags/:tag (slug and title sorted by slug, case-insensitive tag, unknown tag returns []) using the index. Add tests.",
+          "dependencies": ["p3-search"]
+        },
+        {
+          "id": "p3-docs-and-tests",
+          "difficulty": "mechanical",
+          "prompt": "Review the whole change against SPEC.md, fill any missing test coverage for front matter, index sync, search, and tags, and update README.md to document the new endpoints and configuration.",
+          "dependencies": ["p3-tags-api"]
+        }
+      ],
+      "verifyDependencies": ["p3-docs-and-tests"]
+    },
+    "P4": {
+      "title": "CSV report CLI: robust parsing, schema validation, output formats",
+      "baseBranch": "baseline/p4-csv-cli",
+      "tasks": [
+        {
+          "id": "p4-rfc-parser",
+          "difficulty": "hard",
+          "prompt": "Replace the naive comma splitter with an RFC 4180 parser: quoted fields, escaped quotes, commas and newlines inside quotes, CRLF or LF, optional UTF-8 BOM, optional trailing newline; the first record is the header. Keep Node built-ins only. Add parser tests for each edge case.",
+          "dependencies": []
+        },
+        {
+          "id": "p4-schema-validation",
+          "difficulty": "hard",
+          "prompt": "Add --schema <file.json> validation exactly as in SPEC.md: types string, integer, number, date (real YYYY-MM-DD), boolean; required, enum, min, max; missing schema column error; one stderr line per invalid cell as 'row <n>: <column>: <message>' with 1-based data row numbers; exit 2 with empty stdout by default; --skip-invalid drops invalid rows and prints 'skipped <k> invalid row(s)'. Convert integer and number columns to numbers. Add tests.",
+          "dependencies": ["p4-rfc-parser"]
+        },
+        {
+          "id": "p4-aggregation",
+          "difficulty": "mechanical",
+          "prompt": "Extend aggregation: --group-by with optional --sum <col> (column sum_<col>, rounded to 2 decimals) and --count (column count); groups sorted by key ascending; column order group, sum, count. Without --group-by output rows as-is. Add tests.",
+          "dependencies": ["p4-schema-validation"]
+        },
+        {
+          "id": "p4-output-formats",
+          "difficulty": "mechanical",
+          "prompt": "Add --format table|csv|json (default table) and --out <path> exactly as in SPEC.md: json pretty-printed with 2-space indent and trailing newline with numbers as JSON numbers; csv quoted only when needed with \\n line endings and trailing newline; --out writes the file and leaves stdout empty. Add tests.",
+          "dependencies": ["p4-aggregation"]
+        },
+        {
+          "id": "p4-cli-errors-and-docs",
+          "difficulty": "mechanical",
+          "prompt": "Make argument handling strict: unknown flags, missing input file, unreadable file, and bad --format exit 1 with a stderr message starting with 'usage:' or 'error:'. Review the whole change against SPEC.md, fill missing tests, and update README.md.",
+          "dependencies": ["p4-output-formats"]
+        }
+      ],
+      "verifyDependencies": ["p4-cli-errors-and-docs"]
+    }
+  }
+}

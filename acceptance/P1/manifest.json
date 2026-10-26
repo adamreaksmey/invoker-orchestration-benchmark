@@ -1,0 +1,11 @@
+{
+  "fixture": "ledger",
+  "files": [
+    { "from": "ledger-w1.acceptance.test.ts", "to": "packages/api/src/ledger-w1.acceptance.test.ts" },
+    { "from": "ledger-w1.acceptance.spec.ts", "to": "e2e/ledger-w1.acceptance.spec.ts" }
+  ],
+  "commands": [
+    { "name": "acceptance-api", "command": "cd packages/api && npx vitest run src/ledger-w1.acceptance.test.ts" },
+    { "name": "acceptance-e2e", "command": "CI=1 DATABASE_PATH=\"$(mktemp -d)/ledger.sqlite\" npx playwright test e2e/ledger-w1.acceptance.spec.ts --reporter=line" }
+  ]
+}

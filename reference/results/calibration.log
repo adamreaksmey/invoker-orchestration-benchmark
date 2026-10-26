@@ -1,0 +1,12 @@
+[calibrate] P1 baseline fails hidden acceptance (expected)
+[calibrate] P1 reference passes hidden acceptance (expected)
+[calibrate] P2 baseline fails hidden acceptance (expected)
+[calibrate] P2 reference passes hidden acceptance (expected)
+[calibrate] P3 baseline fails hidden acceptance (expected)
+[calibrate] P3 reference passes hidden acceptance (expected)
+[calibrate] P4 baseline fails hidden acceptance (expected)
+[calibrate] P4 reference passes hidden acceptance (expected)
+[calibrate] P1 prior accepted tip 4c7a346 passes (expected)
+[calibrate] P1 prior accepted tip babee97 passes (expected)
+[calibrate] P1 prior accepted tip d5b68ea passes (expected)
+EXIT=0

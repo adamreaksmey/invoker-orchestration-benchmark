@@ -1,0 +1,45 @@
+{
+  "fixture": "P2",
+  "source": {
+    "commit": "c738248ec35c5c48b5e79d0b91423067699a798b"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "fail",
+  "accepted": false,
+  "verifiedAt": "2026-10-26T11:53:12.485Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 233,
+      "logTail": "\nadded 65 packages in 162ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 228,
+      "logTail": "\n> link-shortener@0.1.0 test\n> node --test test/\n\n✔ creates a link and redirects to it (28.855875ms)\n✔ returns link metadata and 404 for unknown codes (8.64625ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 102.7145\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 207,
+      "logTail": "\n> link-shortener@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 4 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 1,
+      "passed": false,
+      "durationMs": 149,
+      "logTail": "ate/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P2-ie5Iwy/.acceptance/shortener.acceptance.test.js:64:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at .acceptance/shortener.acceptance.test.js:76:1\n✖ migrations are recorded in schema_migrations (1.466625ms)\n  Error: no such table: schema_migrations\n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P2-ie5Iwy/.acceptance/shortener.acceptance.test.js:82:26)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    code: 'ERR_SQLITE_ERROR',\n    errcode: 1,\n    errstr: 'SQL logic error'\n  }\n\ntest at .acceptance/shortener.acceptance.test.js:89:1\n✖ rejects invalid URLs and custom codes, and duplicate codes (3.346917ms)\n  AssertionError [ERR_ASSERTION]: url \"not a url\" should be rejected\n  \n  201 !== 400\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P2-ie5Iwy/.acceptance/shortener.acceptance.test.js:94:14)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: false,\n    code: 'ERR_ASSERTION',\n    actual: 201,\n    expected: 400,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at .acceptance/shortener.acceptance.test.js:114:1\n✖ records clicks and reports stats by UTC day (2.602458ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  404 !== 200\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P2-ie5Iwy/.acceptance/shortener.acceptance.test.js:120:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 404,\n    expected: 200,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n\ntest at .acceptance/shortener.acceptance.test.js:144:1\n✖ clicks survive a restart (3.767833ms)\n  TypeError: Cannot read properties of undefined (reading 'totalClicks')\n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P2-ie5Iwy/.acceptance/shortener.acceptance.test.js:156:30)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)\n\ntest at .acceptance/shortener.acceptance.test.js:162:1\n✖ rate limits link creation per window without limiting redirects (2.512875ms)\n  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n  \n  201 !== 429\n  \n      at TestContext.<anonymous> (file:///private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P2-ie5Iwy/.acceptance/shortener.acceptance.test.js:169:12)\n      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n      at async Test.run (node:internal/test_runner/test:1409:7)\n      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {\n    generatedMessage: true,\n    code: 'ERR_ASSERTION',\n    actual: 201,\n    expected: 429,\n    operator: 'strictEqual',\n    diff: 'simple'\n  }\n"
+    }
+  ]
+}

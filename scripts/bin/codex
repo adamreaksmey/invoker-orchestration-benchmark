@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+REAL_CODEX="${BENCH_REAL_CODEX:?BENCH_REAL_CODEX must point at the real codex binary}"
+exec "$REAL_CODEX" "$@" </dev/null

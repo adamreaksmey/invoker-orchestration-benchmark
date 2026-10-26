@@ -1,0 +1,9 @@
+{
+  "fixture": "shortener",
+  "files": [
+    { "from": "shortener.acceptance.test.js", "to": ".acceptance/shortener.acceptance.test.js" }
+  ],
+  "commands": [
+    { "name": "acceptance", "command": "node --test .acceptance/" }
+  ]
+}

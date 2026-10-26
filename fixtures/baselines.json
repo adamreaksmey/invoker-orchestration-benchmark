@@ -1,0 +1,6 @@
+{
+  "P1": { "branch": "baseline/p1-ledger", "sha": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e" },
+  "P2": { "branch": "baseline/p2-shortener", "sha": "c738248ec35c5c48b5e79d0b91423067699a798b" },
+  "P3": { "branch": "baseline/p3-wiki", "sha": "32a4e4be2871ec12fb461334ac10caca40dad33a" },
+  "P4": { "branch": "baseline/p4-csv-cli", "sha": "103bd2de7963836622116f1cfd0adff5bae6b470" }
+}

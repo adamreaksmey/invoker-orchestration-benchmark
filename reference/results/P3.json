@@ -1,0 +1,45 @@
+{
+  "fixture": "P3",
+  "source": {
+    "dir": "/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/tmp.bKw9CmxFdk"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T11:53:16.773Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 345,
+      "logTail": "\nadded 65 packages in 231ms\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 335,
+      "logTail": "\n> markdown-wiki@0.1.0 test\n> node --test test/\n\n✔ lists, reads, creates, updates, and deletes pages (52.377166ms)\n✔ search finds pages containing the query (9.718292ms)\nℹ tests 2\nℹ suites 0\nℹ pass 2\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 156.899125\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 386,
+      "logTail": "\n> markdown-wiki@0.1.0 build\n> node scripts/build.mjs\n\nbuild: syntax-checked 7 file(s)\n"
+    },
+    {
+      "name": "acceptance",
+      "command": "node --test .acceptance/",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 270,
+      "logTail": "✔ parses front matter title and normalizes tags (48.575416ms)\n✔ index uses FTS5 and a schema version table (5.668042ms)\n✔ index re-syncs with files changed while the app was down (13.304625ms)\n✔ search is case-insensitive, ANDs terms, and weights titles (11.257875ms)\n✔ search handles punctuation safely and validates the query (10.653292ms)\n✔ search returns at most 20 results (7.844917ms)\n✔ PUT and DELETE update the index before responding (14.540125ms)\n✔ tags endpoints count and list pages (9.229292ms)\nℹ tests 8\nℹ suites 0\nℹ pass 8\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 201.333417\n"
+    }
+  ]
+}

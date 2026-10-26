@@ -1,0 +1,18 @@
+{
+  "fixturesRepo": "adamreaksmey/invoker-bench-fixtures",
+  "fixturesRepoUrl": "https://github.com/adamreaksmey/invoker-bench-fixtures.git",
+  "fixtures": {
+    "P1": { "name": "ledger", "branch": "baseline/p1-ledger", "purpose": "Full-stack web app (TypeScript API + React UI): data persistence migration" },
+    "P2": { "name": "shortener", "branch": "baseline/p2-shortener", "purpose": "HTTP microservice: persistence, analytics, abuse protection" },
+    "P3": { "name": "wiki", "branch": "baseline/p3-wiki", "purpose": "Content/search service: file sync, full-text index, ranking" },
+    "P4": { "name": "csv-cli", "branch": "baseline/p4-csv-cli", "purpose": "Command-line data tool: parsing, validation, output formats" }
+  },
+  "arms": {
+    "A": { "label": "Continuous Codex", "kind": "continuous", "agent": "codex", "model": "gpt-reserve" },
+    "B": { "label": "Invoker DAG, uniform Codex", "kind": "invoker", "agent": "codex", "plan": "uniform-codex", "models": { "mechanical": "gpt-reserve", "hard": "gpt-reserve" } },
+    "C": { "label": "Invoker DAG, mixed Codex", "kind": "invoker", "agent": "codex", "plan": "mixed-codex", "models": { "mechanical": "gpt-6-luna", "hard": "gpt-reserve" } },
+    "D": { "label": "Continuous Cursor", "kind": "continuous", "agent": "cursor", "model": "grok-4.5" },
+    "E": { "label": "Invoker DAG, uniform Cursor", "kind": "invoker", "agent": "cursor", "plan": "uniform-cursor", "models": { "mechanical": "grok-4.5", "hard": "grok-4.5" } }
+  },
+  "visibleVerifyCommand": "npm ci --no-audit --no-fund && npm test && npm run build"
+}

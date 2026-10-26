@@ -1,0 +1,9 @@
+{
+  "fixture": "csv-cli",
+  "files": [
+    { "from": "csvreport.acceptance.test.js", "to": ".acceptance/csvreport.acceptance.test.js" }
+  ],
+  "commands": [
+    { "name": "acceptance", "command": "node --test .acceptance/" }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "fixture": "P1",
+  "source": {
+    "commit": "d2bf8af6cd0d02f6a7d7eab26f5bd73019e5403e"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "fail",
+  "accepted": false,
+  "verifiedAt": "2026-10-26T11:53:02.926Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1557,
+      "logTail": "\nadded 194 packages in 1s\nnpm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)\nnpm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 2780,
+      "logTail": "\n> personal-ledger@0.1.0 test\n> npm run test --workspaces --if-present\n\n\n> @personal-ledger/api@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-adZ2wV/packages/api\n\n ✓ src/auth-store.test.ts (3 tests) 158ms\n ✓ src/auth-routes.test.ts (3 tests) 355ms\n\n Test Files  2 passed (2)\n      Tests  6 passed (6)\n   Start at  18:52:58\n   Duration  627ms (transform 55ms, setup 0ms, collect 104ms, tests 513ms, environment 0ms, prepare 80ms)\n\n\n> @personal-ledger/core@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-adZ2wV/packages/core\n\n ✓ src/categorization.test.ts (11 tests) 6ms\n ✓ src/ledger.test.ts (5 tests) 7ms\n ✓ src/reports.test.ts (3 tests) 29ms\n ✓ src/auth.test.ts (4 tests) 174ms\n\n Test Files  4 passed (4)\n      Tests  23 passed (23)\n   Start at  18:52:59\n   Duration  534ms (transform 109ms, setup 0ms, collect 173ms, tests 216ms, environment 0ms, prepare 320ms)\n\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1541,
+      "logTail": "\n> personal-ledger@0.1.0 build\n> npm run build --workspaces --if-present\n\n\n> @personal-ledger/web@0.1.0 build\n> tsc -b && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 30 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.45 kB │ gzip:  0.29 kB\ndist/assets/index-C9L4ThPf.css    7.86 kB │ gzip:  2.41 kB\ndist/assets/index-XU90MyxY.js   232.98 kB │ gzip: 72.47 kB\n✓ built in 340ms\n"
+    },
+    {
+      "name": "acceptance-api",
+      "command": "cd packages/api && npx vitest run src/ledger-w1.acceptance.test.ts",
+      "exitCode": 1,
+      "passed": false,
+      "durationMs": 898,
+      "logTail": "\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-adZ2wV/packages/api\n\n ❯ src/ledger-w1.acceptance.test.ts (3 tests | 2 failed) 188ms\n   × W1 hidden acceptance: persisted ledger > returns the same accounts, transactions, and balance from a fresh app instance 75ms\n     → expected [] to deeply equal [ { id: 'checking', …(1) } ]\n   × W1 hidden acceptance: persisted ledger > keeps each user's ledger isolated 81ms\n     → expected 200 \"OK\", got 404 \"Not Found\"\n   ✓ W1 hidden acceptance: persisted ledger > keeps domain validation and error statuses after persistence 32ms\n\n Test Files  1 failed (1)\n      Tests  2 failed | 1 passed (3)\n   Start at  18:53:02\n   Duration  423ms (transform 37ms, setup 0ms, collect 75ms, tests 188ms, environment 0ms, prepare 34ms)\n\n\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  src/ledger-w1.acceptance.test.ts > W1 hidden acceptance: persisted ledger > returns the same accounts, transactions, and balance from a fresh app instance\nAssertionError: expected [] to deeply equal [ { id: 'checking', …(1) } ]\n\n- Expected\n+ Received\n\n- [\n-   {\n-     \"id\": \"checking\",\n-     \"name\": \"Everyday checking\",\n-   },\n- ]\n+ []\n\n ❯ src/ledger-w1.acceptance.test.ts:49:27\n     47|     const restarted = await signedInAgent(\"restart_user\");\n     48|     const accounts = await restarted.get(\"/accounts\").expect(200);\n     49|     expect(accounts.body).toEqual([{ id: \"checking\", name: \"Everyday c…\n       |                           ^\n     50|     const transactions = await restarted.get(\"/transactions\").query({ …\n     51|     expect(transactions.body.map((transaction: { id: string }) => tran…\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯\n\n FAIL  src/ledger-w1.acceptance.test.ts > W1 hidden acceptance: persisted ledger > keeps each user's ledger isolated\nError: expected 200 \"OK\", got 404 \"Not Found\"\n ❯ src/ledger-w1.acceptance.test.ts:71:59\n     69| \n     70|     const owner = await signedInAgent(\"owner_user\");\n     71|     expect((await owner.get(\"/accounts/checking/balance\").expect(200))…\n       |                                                           ^\n     72|   });\n     73| \n ❯ Test._assertStatus ../../node_modules/supertest/lib/test.js:404:14\n ❯ ../../node_modules/supertest/lib/test.js:460:13\n ❯ Test._assertFunction ../../node_modules/supertest/lib/test.js:437:13\n ❯ Test.assert ../../node_modules/supertest/lib/test.js:302:23\n ❯ localAssert ../../node_modules/supertest/lib/test.js:220:38\n ❯ Server.<anonymous> ../../node_modules/supertest/lib/test.js:227:13\n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯\n\n"
+    }
+  ]
+}

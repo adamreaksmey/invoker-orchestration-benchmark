@@ -1,0 +1,5 @@
+node_modules/
+work/
+*.sqlite
+.DS_Store
+fixtures/*/node_modules/

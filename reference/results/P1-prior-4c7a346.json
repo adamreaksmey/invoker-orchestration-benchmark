@@ -1,0 +1,53 @@
+{
+  "fixture": "P1",
+  "source": {
+    "dir": "/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/tmp.C22uSdGJuj"
+  },
+  "tier": 2,
+  "tier1": "pass",
+  "tier2": "pass",
+  "accepted": true,
+  "verifiedAt": "2026-10-26T11:53:28.777Z",
+  "steps": [
+    {
+      "name": "install",
+      "command": "npm ci --no-audit --no-fund",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1072,
+      "logTail": "\nadded 194 packages in 988ms\nnpm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:\nnpm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)\nnpm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n"
+    },
+    {
+      "name": "test",
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 2184,
+      "logTail": "\n> personal-ledger@0.1.0 test\n> npm run test --workspaces --if-present\n\n\n> @personal-ledger/api@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-z4QuxY/packages/api\n\n ✓ src/db.test.ts (1 test) 5ms\n ✓ src/auth-store.test.ts (3 tests) 129ms\n ✓ src/api.integration.test.ts (2 tests) 123ms\n ✓ src/auth-routes.test.ts (3 tests) 217ms\n\n Test Files  4 passed (4)\n      Tests  9 passed (9)\n   Start at  18:53:22\n   Duration  484ms (transform 87ms, setup 0ms, collect 224ms, tests 474ms, environment 0ms, prepare 177ms)\n\n\n> @personal-ledger/core@0.1.0 test\n> vitest run --passWithNoTests\n\n\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-z4QuxY/packages/core\n\n ✓ src/sqlite-ledger.test.ts (3 tests) 4ms\n ✓ src/categorization.test.ts (11 tests) 3ms\n ✓ src/ledger.test.ts (5 tests) 3ms\n ✓ src/reports.test.ts (3 tests) 9ms\n ✓ src/ledger-service.test.ts (3 tests) 4ms\n ✓ src/auth.test.ts (4 tests) 128ms\n\n Test Files  6 passed (6)\n      Tests  29 passed (29)\n   Start at  18:53:22\n   Duration  361ms (transform 152ms, setup 0ms, collect 209ms, tests 151ms, environment 1ms, prepare 317ms)\n\n"
+    },
+    {
+      "name": "build",
+      "command": "npm run build",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1327,
+      "logTail": "\n> personal-ledger@0.1.0 build\n> npm run build --workspaces --if-present\n\n\n> @personal-ledger/web@0.1.0 build\n> tsc -b && vite build\n\nvite v7.3.7 building client environment for production...\ntransforming...\n✓ 30 modules transformed.\nrendering chunks...\ncomputing gzip size...\ndist/index.html                   0.45 kB │ gzip:  0.29 kB\ndist/assets/index-C9L4ThPf.css    7.86 kB │ gzip:  2.41 kB\ndist/assets/index-Bf7-0nQ_.js   232.96 kB │ gzip: 72.49 kB\n✓ built in 338ms\n"
+    },
+    {
+      "name": "acceptance-api",
+      "command": "cd packages/api && npx vitest run src/ledger-w1.acceptance.test.ts",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 1639,
+      "logTail": "\n RUN  v3.2.7 /private/var/folders/xd/dt45_hwj4_l1tjfksrb6cq_h0000gn/T/bench-verify-P1-z4QuxY/packages/api\n\n ✓ src/ledger-w1.acceptance.test.ts (3 tests) 220ms\n\n Test Files  1 passed (1)\n      Tests  3 passed (3)\n   Start at  18:53:25\n   Duration  918ms (transform 58ms, setup 0ms, collect 120ms, tests 220ms, environment 0ms, prepare 70ms)\n\n"
+    },
+    {
+      "name": "acceptance-e2e",
+      "command": "CI=1 DATABASE_PATH=\"$(mktemp -d)/ledger.sqlite\" npx playwright test e2e/ledger-w1.acceptance.spec.ts --reporter=line",
+      "exitCode": 0,
+      "passed": true,
+      "durationMs": 2619,
+      "logTail": "\nRunning 1 test using 1 worker\n\n\n\n[1/1] e2e/ledger-w1.acceptance.spec.ts:5:5 › hidden acceptance: ledger flow survives reload and sign-in\n  1 passed (1.8s)\n(node:58136) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    }
+  ]
+}
